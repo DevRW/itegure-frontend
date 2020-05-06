@@ -1,0 +1,31 @@
+{
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "plugins": ["react"],
+    "env": {
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "rules": {
+        "react/display-name": [
+            "error",
+            {
+              "ignoreTranspilerName": false
+            }
+          ],
+        "no-console":"error",
+        "no-param-reassign":"error",
+        "no-unused-vars":"error",
+        "quotes":["error", "single"],
+        "react/proptypes": "0",
+        "react-hooks/exhaustive-deps":"0",
+        "array-callback-return":["off"]
+    }
+}
