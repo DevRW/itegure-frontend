@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Container, Nav, NavItem, Navbar, NavbarBrand, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/images/logo-pro.svg';
+import { useLocation } from 'react-router-dom';
+import { FaEllipsisH } from 'react-icons/fa';
+import AuthMenu from './auth.menu';
+import Profile from './subscriber.profile';
 const Header = (props) => {
   const { onOpen } = props;
+  const location = useLocation().pathname;
   return (
     <div className="index-header">
       <Navbar>
@@ -12,33 +17,8 @@ const Header = (props) => {
             <img className="logo-default" src={logo} alt="logo" />
           </NavbarBrand>
           <i className="menu-btn"></i>
-          <div className="menu-cnt">
-            <Nav pills>
-              <NavItem>
-                <Link className="btn btn-xs btn-border btn-circle" to="/">
-                  <Button
-                    type="button"
-                    className="auth-link-btn"
-                    onClick={() => onOpen({ log: false, sub: true })}
-                  >
-                    Subscribe
-                  </Button>
-                </Link>
-              </NavItem>
-              <NavItem>
-                <Link className="btn btn-xs btn-border btn-circle" to="/">
-                  <Button
-                    type="button"
-                    className="auth-link-btn signin-link"
-                    onClick={() => onOpen({ log: true, sub: false })}
-                  >
-                    Sign in
-                  </Button>
-                </Link>
-              </NavItem>
-            </Nav>
-            <div className="clear"></div>
-          </div>
+          {location === '/' && <AuthMenu onOpen={onOpen}/>}
+          {location !== '/' && <Profile/>}
         </Container>
       </Navbar>
     </div>

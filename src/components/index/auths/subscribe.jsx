@@ -7,7 +7,7 @@ const Subscribe = (props) => {
   return (
     <AuthLayout onClose={onClose} subtitle="use the following form to subscribe">
       <Form className="auth-form" autoComplete="off">
-      <FormGroup>
+        <FormGroup>
           <Input type="text" name="name" placeholder="your name" />
         </FormGroup>
         <FormGroup>

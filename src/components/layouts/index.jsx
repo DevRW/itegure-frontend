@@ -15,7 +15,7 @@ const Index = (props) => {
   return (
     <div className="index-layout">
       {state.login && <Login onClose={onClose} />}
-      {state.subscribe && <Subscribe onClose={onClose}/>}
+      {state.subscribe && <Subscribe onClose={onClose} />}
       <Header onOpen={onOpen} />
       {props.children}
     </div>
