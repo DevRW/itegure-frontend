@@ -3,7 +3,7 @@ import { Nav, NavItem, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 const AuthMenu = (props) => {
-    const { onOpen } = props;
+  const { onOpen } = props;
   return (
     <div className="menu-cnt">
       <Nav pills>

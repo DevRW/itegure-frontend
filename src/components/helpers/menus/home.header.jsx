@@ -1,9 +1,7 @@
-import React, { Fragment } from 'react';
-import { Container, Nav, NavItem, Navbar, NavbarBrand, Button } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Container, Navbar, NavbarBrand } from 'reactstrap';
 import logo from '../../../assets/images/logo-pro.svg';
 import { useLocation } from 'react-router-dom';
-import { FaEllipsisH } from 'react-icons/fa';
 import AuthMenu from './auth.menu';
 import Profile from './subscriber.profile';
 const Header = (props) => {
@@ -17,8 +15,8 @@ const Header = (props) => {
             <img className="logo-default" src={logo} alt="logo" />
           </NavbarBrand>
           <i className="menu-btn"></i>
-          {location === '/' && <AuthMenu onOpen={onOpen}/>}
-          {location !== '/' && <Profile/>}
+          {location === '/' && <AuthMenu onOpen={onOpen} />}
+          {location !== '/' && <Profile />}
         </Container>
       </Navbar>
     </div>
