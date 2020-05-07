@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import './color.scss';
+.index-layout{
+    .index-header{
+        position: relative;
+        width: 100%;
+        z-index: 10;
+        background: $whiteColor;
+        .logo-default{
+            width: 120px;
+            position: absolute;
+            top: 0;
+            margin-top: 30px;
+        }
+        .menu-cnt{
+            a{
+                cursor: pointer !important;
+                outline: none;
+                box-shadow: none;
+            }
+        }
+        .auth-link-btn{
+            padding: 15px;
+            padding-left: 25px;
+            padding-right: 25px;
+            text-transform: lowercase;
+            border-top-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            margin-top: 10px;
+            background: $whiteColor;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            color: $blackColor;
+            font-weight: bold;
+            font-size: 14px;
+            outline: none !important;
+            box-shadow: none !important;
+            cursor: pointer;
+            margin-left: 20px;
+            margin-right: 20px;
+            .logout-btn{
+                font-size: 15px;
+                .log-icon{
+                padding-right: 5px;
+                font-size: 18px;
+                margin-top: -5px;
+                color: $redColor;
+                }
+            }
+        }
+        .signin-link{
+            background: linear-gradient(#8a3ffb, $redColor);
+            color: $whiteColor;
+            border: 1px solid $whiteColor;
+        }
+        .signin-link:hover{
+            background: linear-gradient(#8a3ffb, $redColor);
+            color: $whiteColor;
+            border: 1px solid $whiteColor;
+        }
+    }
+    .profile-info{
+        padding: 50px;
+        box-shadow: 0px 5px 10px 0px #0000001c;
+        margin-top: -7px;
+        border-bottom-left-radius: 70px;
+        border-bottom-right-radius: 70px;
+        padding-bottom: 70px;
+        .profile-menu{
+            a{
+                color: $blackColor;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 14px;
+            }
+        }
+    }
+    .red-color{
+        color: $redColor;
+    }
+}

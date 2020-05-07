@@ -1,0 +1,76 @@
+@import '../../../assets/css/color.scss';
+.auth-overlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: #0000007a;
+    width: 100%;
+    z-index: 100;
+    .auth{
+        width: 25%;
+        margin: auto;
+        margin-top: 10%;
+        background: $whiteColor;
+        padding: 20px;
+        border-radius: 20px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        position: relative;
+        .auth-logo{
+            width: 30px;
+            img{width: 100%;}
+        }
+        .get-started{
+            font-weight: bold;
+            font-size: 13px;
+            text-transform: capitalize;
+            margin-top: 1rem;
+        }
+        .siz-13{
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+        .auth-form{
+            padding: 40px;
+            input, button{
+                height: 55px;
+                width: 100%;
+                border-radius: 10px;
+            }
+            input{
+                border: 2px solid #56424b14;
+                outline: none !important;
+                box-shadow: none !important;
+            }
+            button{
+                background: $redColor;
+                border: none !important;
+                box-shadow: none !important;
+                font-weight: bold;
+            }
+        }
+        .close{
+            font-size: 15px;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            right: 0;
+            background: white;
+            text-align: center;
+            border-radius: 100%;
+            z-index: 500;
+            border: 2px solid #56424b14;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+    }
+    @media screen and (min-width : 1824px){
+        .auth{
+            width: 20%;
+        }
+    }
+}

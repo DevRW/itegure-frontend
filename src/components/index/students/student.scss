@@ -1,0 +1,76 @@
+@import '../../../assets/css/color.scss';
+.student{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: #0000007a;
+    width: 100%;
+    z-index: 100;
+    .student-form{
+        width: 45%;
+        margin: auto;
+        margin-top: 150px;
+        border-radius: 10px;
+        background: $whiteColor;
+        padding: 70px;
+        padding-bottom: 50px;
+        padding-top: 50px;
+        position: relative;
+        .m-intros{
+            position: relative;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            padding-left: 10px;
+        }
+        .m-form{
+            input, select{
+                height: 65px;
+                width: 100%;
+                border-radius: 5px;
+            }
+            input, select{
+                border: 1px solid #56424b14;
+                outline: none !important;
+                box-shadow: none !important;
+            }
+            button{
+                background: $redColor;
+                border: none !important;
+                box-shadow: none !important;
+                font-weight: bold;
+            }
+        }
+        .close{
+            font-size: 15px;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            right: 0;
+            background: $whiteColor;
+            text-align: center;
+            border-radius: 100%;
+            z-index: 500;
+            border: 2px solid #56424b14;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 0px;
+            cursor: pointer;
+            top: 0;
+            margin-top: 17px;
+            box-shadow: 0 0 0 0.2rem rgba(130,138,145,.5);
+        }
+        .submit-btn{
+            padding: 15px;
+            padding-right: 35px;
+            padding-left: 35px;
+        }
+    }
+    @media screen and (min-width : 1824px){
+        .student-form{
+            width: 40%;
+        }
+    }
+}

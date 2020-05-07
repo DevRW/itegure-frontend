@@ -1,0 +1,90 @@
+@import '../../../assets/css/color.scss';
+
+.sub-dashboard{
+    position: relative;
+    padding-top: 0px;
+    width: 100%;
+    background: $whiteColor;
+    .dash-intro{
+        margin-top: -5rem;
+        position: absolute;
+        z-index: 10;
+    }
+    .st-div{
+      position: relative;
+      .ls{
+        box-shadow: 0px 5px 10px 0px #0000001c;
+        padding: 15px;
+        border-radius: 10px;
+        width: 90%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        }
+        .action{
+            position: relative;
+            .action-div{
+                margin: 3px;
+                margin-top: 8px;
+                .del{
+                    background: $redColor;
+                    border: 1px solid $redColor;
+                }
+            }
+        }
+    }
+    .message-div{
+        position: fixed;
+        box-shadow: 0px 40px 15px 0px #00000014;
+        border-bottom-left-radius: 70px;
+        border-bottom-right-radius: 70px;
+        padding: 17px;
+        padding-bottom: 70px;
+        height: 60vh;
+        overflow: auto;
+        width: 22%;
+        .msg-title{
+            position: relative;
+            .inbox-icon{
+                font-size: 30px;
+            }
+            .title-name{
+                position: absolute;
+                top: 0;
+                margin-left: 50px;
+                margin-top: 10px;
+                font-weight: bold;
+            }
+        }
+        .msg-box{
+            position: relative;
+            margin-top: 20px;
+            .msg-text{
+                padding: 20px;
+                border: 1px solid #f7f7f7;
+                border-top-left-radius: 30px;
+                border-bottom-right-radius: 30px;
+                font-size: 14px;
+                cursor: pointer;
+                margin-top: 10px;
+            }
+        }
+    }
+    .message-div::-webkit-scrollbar {
+        width: 0.6em;
+        background: $whiteColor;
+      }
+       
+    .message-div::-webkit-scrollbar-track {
+        box-shadow: none;
+      }
+       
+    .message-div::-webkit-scrollbar-thumb {
+        background-color: $redColor;
+        border: none !important;
+    }
+    @media screen and (min-width : 1824px){
+        .message-div{
+            width: 18%;
+        }
+    }  
+}
