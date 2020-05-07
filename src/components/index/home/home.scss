@@ -1,0 +1,32 @@
+@import '../../../assets/css/color.scss';
+
+.home-section{
+    position: relative;
+    padding-top: 80px;
+    .intro{
+        padding: 15px;
+        padding-top: 0px;
+    }
+    .w-div{
+        margin-top: 100px;
+    }
+    .welcome-title{
+        font-size: 40px;
+        text-transform: lowercase;
+    }
+    .l-about{
+        width: 70%;
+        font-weight: bold;
+        font-size: 13px;
+    }
+    .ussd-div{
+        margin-top: 4rem;
+        position: relative;
+        .ussd-image{
+            width: 500px;
+            img{
+                width: 100%;
+            }
+    }
+}
+}

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import './color.scss';
+.index-layout{
+    .index-header{
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+        .logo-default{
+            width: 120px;
+        }
+        .menu-cnt{
+            a{
+                cursor: pointer !important;
+                outline: none;
+                box-shadow: none;
+            }
+        }
+        .auth-link-btn{
+            padding: 15px;
+            padding-left: 25px;
+            padding-right: 25px;
+            text-transform: lowercase;
+            border-top-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius: 15px;
+            margin-top: 10px;
+            background: $whiteColor;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            color: $blackColor;
+            font-weight: bold;
+            font-size: 14px;
+            outline: none !important;
+            box-shadow: none !important;
+            cursor: pointer;
+        }
+        .signin-link{
+            background: linear-gradient(#8a3ffb, $redColor);
+            color: $whiteColor;
+            border: 1px solid $whiteColor;
+        }
+        .signin-link:hover{
+            background: linear-gradient(#8a3ffb, $redColor);
+            color: $whiteColor;
+            border: 1px solid $whiteColor;
+        }
+    }
+}
