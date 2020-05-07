@@ -41,7 +41,7 @@
         padding-bottom: 70px;
         height: 60vh;
         overflow: auto;
-        width: 18%;
+        width: 22%;
         .msg-title{
             position: relative;
             .inbox-icon{
@@ -81,5 +81,10 @@
     .message-div::-webkit-scrollbar-thumb {
         background-color: $redColor;
         border: none !important;
-      }  
+    }
+    @media screen and (min-width : 1824px){
+        .message-div{
+            width: 18%;
+        }
+    }  
 }

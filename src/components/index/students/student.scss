@@ -7,7 +7,7 @@
     width: 100%;
     z-index: 100;
     .student-form{
-        width: 40%;
+        width: 45%;
         margin: auto;
         margin-top: 150px;
         border-radius: 10px;
@@ -64,8 +64,13 @@
         }
         .submit-btn{
             padding: 15px;
-            padding-right: 30px;
-            padding-left: 30px;
+            padding-right: 35px;
+            padding-left: 35px;
+        }
+    }
+    @media screen and (min-width : 1824px){
+        .student-form{
+            width: 40%;
         }
     }
 }
