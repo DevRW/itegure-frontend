@@ -3,6 +3,8 @@
 .home-section{
     position: relative;
     padding-top: 80px;
+    padding-bottom: 20px;
+    background: $whiteColor;
     .intro{
         padding: 15px;
         padding-top: 0px;
@@ -13,14 +15,29 @@
     .welcome-title{
         font-size: 40px;
         text-transform: lowercase;
+        background: -webkit-linear-gradient(#232020, #000000);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+    }
+    .sub-title{
+        background: -webkit-linear-gradient(262deg, #ff7854, #fd267d); 
+        -webkit-text-fill-color: transparent; 
+        -webkit-background-clip: text;
     }
     .l-about{
         width: 70%;
         font-weight: bold;
-        font-size: 13px;
+        font-size: 14px;
+        .home-icon{
+            font-size: 16px;
+            i{
+                color: $redColor;
+            }
+        }
     }
     .ussd-div{
-        margin-top: 4rem;
+        margin-top: 5rem;
         position: relative;
         .ussd-image{
             width: 500px;
