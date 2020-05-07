@@ -67,6 +67,13 @@
             margin-right: 20px;
             cursor: pointer;
         }
+        .auth-error{
+            font-size: 13px;
+            text-align: center;
+            padding-left: 40px !important;
+            padding-right: 40px!important;
+            color: #ff0739;
+        }
     }
     @media screen and (min-width : 1824px){
         .auth{

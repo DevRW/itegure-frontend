@@ -21,9 +21,6 @@ const CreateStudent = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
   };
-  const onClose = () => {
-    setState({ ...state, isOpen: false });
-  };
   useEffect(() => {
     setState({ ...state, isOpen: props.isOpen });
     // eslint-disable-next-line

@@ -18,7 +18,7 @@ const Dashboard = () => {
   };
   return (
     <Layout>
-      {state.isOpen && <CreateStudent isOpen={state.isOpen} onOpen={onOpen}/>}
+      {state.isOpen && <CreateStudent isOpen={state.isOpen} onOpen={onOpen} />}
       <div className="sub-dashboard">
         <Container>
           <Row>
