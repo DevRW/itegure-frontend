@@ -59,14 +59,14 @@ export const currentProfile = () => async (dispatch) => {
   }
 };
 
-export const unSubscribe = ()=>async(dispatch)=>{
+export const unSubscribe = () => async (dispatch) => {
   try {
     await axios.delete('/subscriptions/unsubscribe');
     removeItem(IS_AUTH);
     removeItem(SUBSCRIPTION_TOKEN);
-    window.location.href="/";
+    window.location.href = '/';
   } catch (error) {
     const { data } = error.response;
     dispatchAction({ type: ERRORS, payload: { errors: data.error }, dispatch });
   }
-}
+};

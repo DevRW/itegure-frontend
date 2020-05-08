@@ -84,4 +84,59 @@
         color: #1b9a49 !important;
         font-weight: bold !important;
     }
+    .overlay{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        background: #0000007a;
+        width: 100%;
+        z-index: 100;
+        left: 0;
+        right: 0;
+        .popup-modal{
+            width: 25%;
+            margin: auto;
+            padding: 50px;
+            background: $whiteColor;
+            margin-top: 150px;
+            border-radius: 20px;
+            position: relative;
+            border-top-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            .alert-pop{
+                margin-bottom: 15px;
+            }
+            .alert-icon{
+                font-size: 40px;
+                position: absolute;
+                top: 0px;
+                margin-top: 40px;
+            }
+            .pop-text{
+                margin-left: 50px;
+                font-size: 14px;
+                width: 70%;
+            }
+            .bt{
+                padding: 15px;
+                margin: 5px;
+                border-top-left-radius: 15px;
+                border-bottom-right-radius: 15px;
+            }
+            .unsubtn{
+               background: $redColor;
+               border-color: $redColor;
+               outline: none !important;
+               box-shadow: none !important;
+            }
+            .cancel-btn{
+                margin-left: 30px;
+            }
+        }
+    }
+    @media screen and (min-width : 1824px){
+        .popup-modal{
+            width: 20%;
+        }
+    }
 }

@@ -46,6 +46,7 @@ const CreateStudent = (props) => {
     if (create) {
       setState({ ...state, message: create.message, spinner: false });
     }
+    // eslint-disable-next-line
   }, [props.studentReducer]);
   return (
     <Fragment>

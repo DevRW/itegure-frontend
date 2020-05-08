@@ -26,7 +26,6 @@ const mapState = (state) => ({
 });
 const connector = connect(mapState, { readAllStudent, getAllClass, deleteStudent });
 const ReadStudent = (props) => {
-  const { classes } = props.classReducer;
   const { readAll, errors, create } = props.studentReducer;
   const [state, setState] = useState({
     isOpen: false,
@@ -51,6 +50,7 @@ const ReadStudent = (props) => {
       props.getAllClass();
     };
     fetch();
+    // eslint-disable-next-line
   }, []);
   useEffect(() => {
     if (errors || readAll) {
@@ -59,6 +59,7 @@ const ReadStudent = (props) => {
     if (create) {
       setState({ ...state, isOpen: false, edit: false });
     }
+    // eslint-disable-next-line
   }, [props.studentReducer]);
 
   const findStudent = (studentId) => {

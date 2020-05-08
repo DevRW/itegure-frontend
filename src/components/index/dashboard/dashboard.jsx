@@ -4,17 +4,32 @@ import { Container, Row, Col } from 'reactstrap';
 import './dashboard.scss';
 import { BsChatSquareDots } from 'react-icons/bs';
 import ViewStudent from '../students/read.student';
-const Dashboard = () => {
+import { readAllStudent } from '../../../redux/students/actions';
+import { connect } from 'react-redux';
+const mapState = (state) => ({
+  studentReducer: state.students,
+});
+const connector = connect(mapState, { readAllStudent });
+const Dashboard = (props) => {
+  const { readAll } = props.studentReducer;
   return (
     <Layout>
       <div className="sub-dashboard">
         <Container>
           <Row>
             <Col md="10">
-              <div className="dash-intro">
-                welcome back, you have
-                <div className="font-weight-bold">25 students</div> assigned on you.
-              </div>
+              {readAll && readAll.length !== 0 && (
+                <div className="dash-intro">
+                  welcome back, you have
+                  <div className="font-weight-bold">
+                    {readAll.length} students
+                  </div>{' '}
+                  assigned on you.
+                </div>
+              )}
+              {readAll && readAll.length === 0 && (
+                <div className="dash-intro"> welcome back, </div>
+              )}
             </Col>
           </Row>
         </Container>
@@ -43,4 +58,4 @@ const Dashboard = () => {
     </Layout>
   );
 };
-export default Dashboard;
+export default connector(Dashboard);
