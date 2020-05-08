@@ -4,10 +4,16 @@ import { Link } from 'react-router-dom';
 import { FaOsi } from 'react-icons/fa';
 import { BsPhone, BsFileEarmarkCheck, BsPower } from 'react-icons/bs';
 import { NAME, PHONE_NUMBER } from '../../../redux/subscriptions/types';
-import { getStorage } from '../../../redux/helpers/action.helper';
+import { getStorage, removeItem } from '../../../redux/helpers/action.helper';
+import {IS_AUTH, SUBSCRIPTION_TOKEN} from '../../../redux/subscriptions/types';
 const Profile = () => {
   const name = getStorage(NAME);
   const phoneNumber = getStorage(PHONE_NUMBER);
+  const logout = ()=>{
+    removeItem(IS_AUTH);
+    removeItem(SUBSCRIPTION_TOKEN);
+    window.location.href = '/';
+  }
   return (
     <div className="menu-cnt">
       <Nav pills>
@@ -15,7 +21,7 @@ const Profile = () => {
           <NavItem>
             <Link className="btn btn-xs btn-border btn-circle" to="#">
               <Button type="button" className="auth-link-btn">
-                <div className="d-flex logout-btn">
+                <div className="d-flex logout-btn" onClick={logout}>
                   <div className="log-icon">
                     <BsPower />
                   </div>
