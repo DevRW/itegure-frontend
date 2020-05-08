@@ -8,6 +8,7 @@ import { readAllStudent } from '../../../redux/students/actions';
 import { connect } from 'react-redux';
 import { viewNotifications } from '../../../redux/subscriptions/actions';
 import { LoadingWait, NotFoundMessage } from '../../helpers/reusable/loading';
+import Message from './message';
 const mapState = (state) => ({
   studentReducer: state.students,
   subscriptionReducer: state.subscriptions,
@@ -54,33 +55,7 @@ const Dashboard = (props) => {
         </Container>
         <Container>
           <Row>
-            <Col md="4" className="mt-3">
-              <div className="message-div">
-                <div className="msg-title">
-                  <div className="red-color inbox-icon">
-                    <BsChatSquareDots />
-                  </div>
-                  <div className="title-name">inbox</div>
-                </div>
-                {state.loading && (
-                  <div className="m-5 d-flex justify-content-center align-items-center text-align-center loadings" style={{height: '50%'}}>
-                    <LoadingWait />
-                  </div>
-                )}
-                {notifications && notifications.length !== 0 && (
-                  <div className="msg-box">
-                    {notifications.map(item=><div className="msg-text" key={item.notificationId}>
-                      {item.message}
-                    </div>)}
-                  </div>
-                )}
-                {notifications && notifications.length === 0 && (
-                  <div className="m-5 d-flex justify-content-center align-items-center text-align-center loadings" style={{height: '50%'}}>
-                    <NotFoundMessage message={'empty inbox'} />
-                  </div>
-                )}
-              </div>
-            </Col>
+            <Message notifications={notifications} state={state} />
             <ViewStudent />
           </Row>
         </Container>
