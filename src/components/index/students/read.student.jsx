@@ -5,24 +5,40 @@ import {
   BsGrid1X2,
   BsListTask,
   BsTrash2,
-  BsBrush, BsCheckCircle
+  BsBrush,
+  BsCheckCircle,
 } from 'react-icons/bs';
 import CreateStudent from './create.student';
 import { connect } from 'react-redux';
-import { readAllStudent } from '../../../redux/students/actions';
+import { readAllStudent, deleteStudent } from '../../../redux/students/actions';
 import { getAllClass } from '../../../redux/classes/actions';
+import { Spinner } from '../../helpers/reusable/loading';
+import EditStudent from './edit.student';
+import './student.scss';
 
 const mapState = (state) => ({
   classReducer: state.classes,
   studentReducer: state.students,
 });
-const connector = connect(mapState, { readAllStudent, getAllClass });
+const connector = connect(mapState, { readAllStudent, getAllClass, deleteStudent });
 const ReadStudent = (props) => {
   const { classes } = props.classReducer;
   const { readAll, errors, create } = props.studentReducer;
-  const [state, setState] = useState({ isOpen: false, loading: false });
+  const [state, setState] = useState({
+    isOpen: false,
+    loading: false,
+    studentId: '',
+    spinner: false,
+    error: '',
+    edit: false,
+    student: null,
+    delSpinner: false,
+  });
   const onOpen = () => {
     setState({ ...state, isOpen: !state.isOpen });
+  };
+  const onEdit = () => {
+    setState({ ...state, edit: !state.edit });
   };
   useEffect(() => {
     const fetch = () => {
@@ -37,12 +53,28 @@ const ReadStudent = (props) => {
       setState({ ...state, loading: false });
     }
     if (create) {
-      setState({ ...state, isOpen: false });
+      setState({ ...state, isOpen: false, edit: false });
     }
   }, [props.studentReducer]);
+
+  const findStudent = (studentId) => {
+    setState({ ...state, studentId, spinner: true });
+    const find = readAll.find((item) => item.studentId === studentId);
+    if (!find) {
+      setState({ ...state, error: 'student not found' });
+    }
+    setState({ ...state, student: find, edit: true });
+  };
+  const deleteStudent = (studentId) => {
+    setState({ ...state, studentId, delSpinner: true });
+    props.deleteStudent(studentId);
+  };
   return (
     <Fragment>
       {state.isOpen && <CreateStudent isOpen={state.isOpen} onOpen={onOpen} />}
+      {state.edit && (
+        <EditStudent isOpen={state.edit} onOpen={onEdit} student={state.student} />
+      )}
       <Col md="8" className="mt-3">
         <div className="mt-3 mb-3">
           <Button type="button" className="p-2" onClick={onOpen}>
@@ -91,13 +123,35 @@ const ReadStudent = (props) => {
                   </div>
                   <div className="action ml-2">
                     <div className="action-div">
-                      <Button type="button" className="ed">
-                        <BsBrush />
+                      <Button
+                        type="button"
+                        className="ed"
+                        onClick={() => findStudent(item.studentId)}
+                        disabled={
+                          state.studentId === item.studentId && state.spinner
+                        }
+                      >
+                        {state.spinner && state.studentId === item.studentId ? (
+                          <Spinner color="text-light" />
+                        ) : (
+                          <BsBrush />
+                        )}
                       </Button>
                     </div>
                     <div className="action-div">
-                      <Button type="button" className="del">
-                        <BsTrash2 />
+                      <Button
+                        type="button"
+                        className="del"
+                        onClick={() => deleteStudent(item.studentId)}
+                        disabled={
+                          state.studentId === item.studentId && state.delSpinner
+                        }
+                      >
+                        {state.delSpinner && state.studentId === item.studentId ? (
+                          <Spinner color="text-light" />
+                        ) : (
+                          <BsTrash2 />
+                        )}
                       </Button>
                     </div>
                   </div>

@@ -26,11 +26,6 @@
             font-weight: bold;
             padding-left: 10px;
         }
-        .success-message{
-            position: absolute;
-            color: #1b9a49 !important;
-            margin-top: 10px;
-        }
         .m-form{
             input, select{
                 height: 65px;
@@ -80,4 +75,12 @@
             width: 40%;
         }
     }
+}
+.success-message{
+    position: absolute;
+    color: #1b9a49 !important;
+    margin-top: 10px;
+    top: 0;
+    margin-left: 100px;
+    margin-top: 22px;
 }

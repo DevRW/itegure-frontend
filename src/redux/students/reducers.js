@@ -14,10 +14,10 @@ export default (state = initialState, { type, payload }) => {
       return { ...state, readSpecific: payload };
     case DELETE:
       const { message } = payload;
-      return { ...state, delete: { message } };
+      return { ...state, create: { message } };
     case UPDATE:
       const { message: messages } = payload;
-      return { ...state, update: { message: messages } };
+      return { ...state, create: { message: messages } };
     case ERRORS:
       return { ...state, errors: payload };
     default:

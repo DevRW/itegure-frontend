@@ -25,9 +25,10 @@ export const createStudent = (information) => async (dispatch) => {
 };
 export const deleteStudent = (studentId) => async (dispatch) => {
   try {
-    const { data } = await axios.get(`/students/delete-student/${studentId}`);
+    const { data } = await axios.delete(`/students/delete-student/${studentId}`);
     const { message } = data.result;
     dispatchAction({ type: DELETE, payload: { message, studentId }, dispatch });
+    await dispatch(readAllStudent());
   } catch (error) {
     const { data } = error.response;
     dispatchAction({ type: ERRORS, payload: data.error, dispatch });
@@ -36,12 +37,13 @@ export const deleteStudent = (studentId) => async (dispatch) => {
 
 export const updateStudent = (studentId, information) => async (dispatch) => {
   try {
-    const { data } = await axios.post(
+    const { data } = await axios.put(
       `/students/update-student/${studentId}`,
       information
     );
     const { message } = data.result;
     dispatchAction({ type: UPDATE, payload: { message, studentId }, dispatch });
+    await dispatch(readAllStudent());
   } catch (error) {
     const { data } = error.response;
     dispatchAction({ type: ERRORS, payload: data.error, dispatch });

@@ -86,7 +86,7 @@ const StudentLayout = (props) => {
                   className="submit-btn"
                   disabled={state.spinner}
                 >
-                  {state.spinner ? <Spinner /> : 'Submit'}
+                  {state.spinner ? <Spinner color="text-light" /> : 'Submit'}
                 </Button>
               </FormGroup>
             </Form>
