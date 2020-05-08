@@ -9,6 +9,6 @@ export const getStorage = (item) => {
   const value = sessionStorage.getItem(item);
   return value;
 };
-export const removeItem = (item)=>{
+export const removeItem = (item) => {
   sessionStorage.removeItem(item);
-}
+};
