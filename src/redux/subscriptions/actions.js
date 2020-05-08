@@ -7,7 +7,7 @@ import {
   IS_AUTH,
   PROFILE,
   NAME,
-  PHONE_NUMBER,
+  PHONE_NUMBER, CREATE_SUBSCRIPTION
 } from './types';
 
 export const login = (information) => async (dispatch) => {
@@ -70,3 +70,17 @@ export const unSubscribe = () => async (dispatch) => {
     dispatchAction({ type: ERRORS, payload: { errors: data.error }, dispatch });
   }
 };
+
+export const subscribe = (information)=> async(dispatch)=>{
+  dispatchAction({ type: ERRORS, payload: null, dispatch });
+  try {
+    const { data } = await axios.post('/subscriptions/create-subscription', information);
+    const { message } = data.result;
+    dispatchAction({ type: CREATE_SUBSCRIPTION, payload: message, dispatch });
+  } catch (error) {
+    if (error) {
+      const { data } = error.response;
+      dispatchAction({ type: ERRORS, payload: data.error, dispatch });
+    }
+  }
+}
