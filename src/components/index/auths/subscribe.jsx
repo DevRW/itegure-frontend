@@ -6,11 +6,11 @@ import { connect } from 'react-redux';
 import VerifyCode from './verification.code';
 import { Spinner } from '../../helpers/reusable/loading';
 import { subscribe } from '../../../redux/subscriptions/actions';
-import {handleValidationError} from '../../helpers/reusable/errors';
+import { handleValidationError } from '../../helpers/reusable/errors';
 const mapState = (state) => ({
   subscriptionReducer: state.subscriptions,
 });
-const connector = connect(mapState, {subscribe});
+const connector = connect(mapState, { subscribe });
 const Subscribe = (props) => {
   const { onClose } = props;
   const { errors, message } = props.subscriptionReducer;
@@ -49,7 +49,9 @@ const Subscribe = (props) => {
               value={state.name}
               onChange={onChange}
             />
-            {errors && errors.validationError && handleValidationError(errors.validationError, 'name')}
+            {errors &&
+              errors.validationError &&
+              handleValidationError(errors.validationError, 'name')}
           </FormGroup>
           <FormGroup>
             <Input
@@ -59,7 +61,9 @@ const Subscribe = (props) => {
               value={state.phoneNumber}
               onChange={onChange}
             />
-            {errors && errors.validationError && handleValidationError(errors.validationError, 'phoneNumber')}
+            {errors &&
+              errors.validationError &&
+              handleValidationError(errors.validationError, 'phoneNumber')}
           </FormGroup>
           <FormGroup>
             <Button type="submit">

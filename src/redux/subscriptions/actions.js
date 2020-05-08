@@ -7,7 +7,9 @@ import {
   IS_AUTH,
   PROFILE,
   NAME,
-  PHONE_NUMBER, CREATE_SUBSCRIPTION
+  PHONE_NUMBER,
+  CREATE_SUBSCRIPTION,
+  READ_ALL_NOTIFICATION,
 } from './types';
 
 export const login = (information) => async (dispatch) => {
@@ -71,10 +73,13 @@ export const unSubscribe = () => async (dispatch) => {
   }
 };
 
-export const subscribe = (information)=> async(dispatch)=>{
+export const subscribe = (information) => async (dispatch) => {
   dispatchAction({ type: ERRORS, payload: null, dispatch });
   try {
-    const { data } = await axios.post('/subscriptions/create-subscription', information);
+    const { data } = await axios.post(
+      '/subscriptions/create-subscription',
+      information
+    );
     const { message } = data.result;
     dispatchAction({ type: CREATE_SUBSCRIPTION, payload: message, dispatch });
   } catch (error) {
@@ -83,4 +88,17 @@ export const subscribe = (information)=> async(dispatch)=>{
       dispatchAction({ type: ERRORS, payload: data.error, dispatch });
     }
   }
-}
+};
+
+export const viewNotifications = () => async (dispatch) => {
+  dispatchAction({ type: ERRORS, payload: null, dispatch });
+  try {
+    const { data } = await axios.get('/notifications/read-sub-notification');
+    dispatchAction({ type: READ_ALL_NOTIFICATION, payload: data.result, dispatch });
+  } catch (error) {
+    if (error) {
+      const { data } = error.response;
+      dispatchAction({ type: ERRORS, payload: data.error, dispatch });
+    }
+  }
+};
