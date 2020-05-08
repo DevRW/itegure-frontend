@@ -39,7 +39,7 @@ const Login = (props) => {
     if (message) {
       setState({ ...state, spinner: false, verified: true });
     }
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
   }, [props.subscriptionReducer]);
   const subtitle = 'use the following form to login';
   return (

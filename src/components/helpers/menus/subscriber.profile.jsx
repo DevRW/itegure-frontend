@@ -3,7 +3,11 @@ import { Nav, NavItem, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FaOsi } from 'react-icons/fa';
 import { BsPhone, BsFileEarmarkCheck, BsPower } from 'react-icons/bs';
+import { NAME, PHONE_NUMBER } from '../../../redux/subscriptions/types';
+import {getStorage} from '../../../redux/helpers/action.helper';
 const Profile = () => {
+  const name = getStorage(NAME);
+  const phoneNumber = getStorage(PHONE_NUMBER);
   return (
     <div className="menu-cnt">
       <Nav pills>
@@ -27,13 +31,13 @@ const Profile = () => {
                   <FaOsi />
                   &nbsp;
                 </div>
-                <div>gratien tuyishimire</div>
+               <div>{name && name!== '' ? name: 'no names'}</div>
               </div>
               <div className="d-flex">
                 <div className="red-color">
                   <BsPhone /> &nbsp;
                 </div>
-                <div>+250786601003</div>
+                <div>{phoneNumber && phoneNumber!== '' ? phoneNumber: 'no phone'}</div>
               </div>
               <div className="profile-menu mt-2">
                 <Nav vertical>

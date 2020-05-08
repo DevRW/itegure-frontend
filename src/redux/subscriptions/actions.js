@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { dispatchAction, setStorage } from '../helpers/action.helper';
-import { ERRORS, LOGIN, SUBSCRIPTION_TOKEN } from './types';
+import { ERRORS, LOGIN, SUBSCRIPTION_TOKEN, IS_AUTH, PROFILE, NAME, PHONE_NUMBER } from './types';
 
 export const login = (information) => async (dispatch) => {
   dispatchAction({ type: ERRORS, payload: null, dispatch });
@@ -24,9 +24,25 @@ export const authenticate = (information) => async (dispatch) => {
       information
     );
     const { message, token } = data.result;
-    setStorage({item: SUBSCRIPTION_TOKEN, value: token});
+    setStorage({ item: SUBSCRIPTION_TOKEN, value: token });
+    setStorage({ item: IS_AUTH, value: true });
     dispatchAction({ type: LOGIN, payload: message, dispatch });
     window.location.href = '/home';
+  } catch (error) {
+    if (error) {
+      const { data } = error.response;
+      dispatchAction({ type: ERRORS, payload: data.error, dispatch });
+    }
+  }
+};
+
+export const currentProfile = () => async (dispatch) => {
+  try {
+    const { data } = await axios.get('/subscriptions/read-profile');
+    const {profile} = data.result;
+    setStorage({item: NAME, value: profile.name});
+    setStorage({item: PHONE_NUMBER, value: profile.phoneNumber});
+    dispatchAction({ type: PROFILE, payload: data.result, dispatch });
   } catch (error) {
     if (error) {
       const { data } = error.response;

@@ -27,9 +27,9 @@ const VerifyCode = (props) => {
   };
   useEffect(() => {
     if (errors || message) {
-     loadingControl(false);
+      loadingControl(false);
     }
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
   }, [props.subscriptionReducer]);
   return (
     <Fragment>
@@ -52,7 +52,9 @@ const VerifyCode = (props) => {
           />
         </FormGroup>
         <FormGroup>
-          <Button type="submit" disabled={state.spinner}>{state.spinner ? <Spinner color="text-light" /> : 'verify'}</Button>
+          <Button type="submit" disabled={state.spinner}>
+            {state.spinner ? <Spinner color="text-light" /> : 'verify'}
+          </Button>
         </FormGroup>
       </Form>
     </Fragment>
