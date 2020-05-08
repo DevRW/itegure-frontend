@@ -3,7 +3,28 @@ import { Nav, NavItem, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FaOsi } from 'react-icons/fa';
 import { BsPhone, BsFileEarmarkCheck, BsPower } from 'react-icons/bs';
-const Profile = () => {
+import { NAME, PHONE_NUMBER } from '../../../redux/subscriptions/types';
+import { getStorage, removeItem } from '../../../redux/helpers/action.helper';
+import {IS_AUTH, SUBSCRIPTION_TOKEN} from '../../../redux/subscriptions/types';
+import {unSubscribe} from '../../../redux/subscriptions/actions';
+import {connect} from 'react-redux';
+
+const mapState = (state)=>({
+  subscriptions: state.subscriptions
+});
+
+const connector = connect(mapState, {unSubscribe});
+const Profile = (props) => {
+  const name = getStorage(NAME);
+  const phoneNumber = getStorage(PHONE_NUMBER);
+  const logout = ()=>{
+    removeItem(IS_AUTH);
+    removeItem(SUBSCRIPTION_TOKEN);
+    window.location.href = '/';
+  }
+  const closeAccount = ()=>{
+    props.unSubscribe();
+  }
   return (
     <div className="menu-cnt">
       <Nav pills>
@@ -11,7 +32,7 @@ const Profile = () => {
           <NavItem>
             <Link className="btn btn-xs btn-border btn-circle" to="#">
               <Button type="button" className="auth-link-btn">
-                <div className="d-flex logout-btn">
+                <div className="d-flex logout-btn" onClick={logout}>
                   <div className="log-icon">
                     <BsPower />
                   </div>
@@ -27,13 +48,15 @@ const Profile = () => {
                   <FaOsi />
                   &nbsp;
                 </div>
-                <div>gratien tuyishimire</div>
+                <div>{name && name !== '' ? name : 'no names'}</div>
               </div>
               <div className="d-flex">
                 <div className="red-color">
                   <BsPhone /> &nbsp;
                 </div>
-                <div>+250786601003</div>
+                <div>
+                  {phoneNumber && phoneNumber !== '' ? phoneNumber : 'no phone'}
+                </div>
               </div>
               <div className="profile-menu mt-2">
                 <Nav vertical>
@@ -48,7 +71,7 @@ const Profile = () => {
                     </Link>
                   </NavItem>
                   <NavItem>
-                    <Link className="nav-link" to="#">
+                    <Link className="nav-link" to="#" onClick={closeAccount}>
                       <div className="d-flex">
                         <div className="pr-2">
                           <BsFileEarmarkCheck />
@@ -66,4 +89,4 @@ const Profile = () => {
     </div>
   );
 };
-export default Profile;
+export default connector(Profile);

@@ -6,6 +6,8 @@
     background: #0000007a;
     width: 100%;
     z-index: 100;
+    left: 0;
+    right: 0;
     .student-form{
         width: 45%;
         margin: auto;
@@ -73,4 +75,12 @@
             width: 40%;
         }
     }
+}
+.success-message{
+    position: absolute;
+    color: #1b9a49 !important;
+    margin-top: 10px;
+    top: 0;
+    margin-left: 100px;
+    margin-top: 22px;
 }

@@ -1,4 +1,4 @@
-import { WELCOME, ERRORS } from './types';
+import { WELCOME, ERRORS, LOGIN, PROFILE } from './types';
 
 const initialState = {
   message: null,
@@ -13,7 +13,10 @@ export default (state = initialState, { type, payload }) => {
       };
     case ERRORS:
       return { ...state, errors: payload };
-
+    case LOGIN:
+      return { ...state, message: payload };
+    case PROFILE:
+      return { ...state, profile: payload };
     default:
       return state;
   }

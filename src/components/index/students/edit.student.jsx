@@ -2,13 +2,13 @@ import React, { useState, useEffect, Fragment } from 'react';
 import Layout from './student.layout';
 import { connect } from 'react-redux';
 import { getAllClass } from '../../../redux/classes/actions';
-import { createStudent } from '../../../redux/students/actions';
+import { updateStudent } from '../../../redux/students/actions';
 const mapState = (state) => ({
   classReducer: state.classes,
   studentReducer: state.students,
 });
-const connector = connect(mapState, { getAllClass, createStudent });
-const CreateStudent = (props) => {
+const connector = connect(mapState, { getAllClass, updateStudent });
+const EditStudent = (props) => {
   const { classes } = props.classReducer;
   const { create, errors } = props.studentReducer;
   const [state, setState] = useState({
@@ -18,6 +18,7 @@ const CreateStudent = (props) => {
     loading: false,
     spinner: false,
     message: '',
+    studentId: '',
   });
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -26,7 +27,7 @@ const CreateStudent = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     setState({ ...state, spinner: true });
-    props.createStudent(state);
+    props.updateStudent(state.studentId, state);
   };
   useEffect(() => {
     setState({ ...state, isOpen: props.isOpen });
@@ -46,7 +47,15 @@ const CreateStudent = (props) => {
     if (create) {
       setState({ ...state, message: create.message, spinner: false });
     }
+    // eslint-disable-next-line
   }, [props.studentReducer]);
+  useEffect(() => {
+    if (props.student) {
+      const { name, school, studentId, classId } = props.student;
+      setState({ ...state, name, school, classStudy: classId, studentId });
+    }
+    // eslint-disable-next-line
+  }, [props.student]);
   return (
     <Fragment>
       {props.isOpen && (
@@ -57,14 +66,14 @@ const CreateStudent = (props) => {
           onClose={props.onOpen}
           isOpen={props.isOpen}
           classes={classes && classes}
-          title="Assign new student"
+          title="Edit student"
           errors={errors}
           message={state.message}
-          buttonName="submit"
+          buttonName="update"
         ></Layout>
       )}
     </Fragment>
   );
 };
 
-export default connector(CreateStudent);
+export default connector(EditStudent);
