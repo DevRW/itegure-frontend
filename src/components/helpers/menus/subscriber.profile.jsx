@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaOsi } from 'react-icons/fa';
 import { BsPhone, BsFileEarmarkCheck, BsPower } from 'react-icons/bs';
 import { NAME, PHONE_NUMBER } from '../../../redux/subscriptions/types';
-import {getStorage} from '../../../redux/helpers/action.helper';
+import { getStorage } from '../../../redux/helpers/action.helper';
 const Profile = () => {
   const name = getStorage(NAME);
   const phoneNumber = getStorage(PHONE_NUMBER);
@@ -31,13 +31,15 @@ const Profile = () => {
                   <FaOsi />
                   &nbsp;
                 </div>
-               <div>{name && name!== '' ? name: 'no names'}</div>
+                <div>{name && name !== '' ? name : 'no names'}</div>
               </div>
               <div className="d-flex">
                 <div className="red-color">
                   <BsPhone /> &nbsp;
                 </div>
-                <div>{phoneNumber && phoneNumber!== '' ? phoneNumber: 'no phone'}</div>
+                <div>
+                  {phoneNumber && phoneNumber !== '' ? phoneNumber : 'no phone'}
+                </div>
               </div>
               <div className="profile-menu mt-2">
                 <Nav vertical>

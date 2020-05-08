@@ -2,8 +2,20 @@ import React from 'react';
 import { Form, Button, FormGroup, Input } from 'reactstrap';
 import './student.scss';
 import Animista, { AnimistaTypes } from 'react-animista';
+import { Spinner } from '../../helpers/reusable/loading';
+import { handleValidationError } from '../../helpers/reusable/errors';
+import { BsCheckCircle } from 'react-icons/bs';
 const StudentLayout = (props) => {
-  const { title, onClose, onSubmit, state, classes, onChange } = props;
+  const {
+    title,
+    onClose,
+    onSubmit,
+    state,
+    classes,
+    onChange,
+    errors,
+    message,
+  } = props;
   return (
     <div className="student">
       <Animista type={AnimistaTypes.SCALE_UP_BOTTOM}>
@@ -15,6 +27,12 @@ const StudentLayout = (props) => {
                 x
               </Button>
             </div>
+            {message && (
+              <div className="font-weight-normal success-message">
+                <BsCheckCircle />
+                &nbsp; {message}
+              </div>
+            )}
           </div>
           <div className="m-form">
             <Form autoComplete="off" onSubmit={(e) => onSubmit(e)}>
@@ -26,6 +44,9 @@ const StudentLayout = (props) => {
                   placeholder="student name"
                   onChange={(e) => onChange(e)}
                 />
+                {errors &&
+                  errors.validationError &&
+                  handleValidationError(errors.validationError, 'name')}
               </FormGroup>
               <FormGroup>
                 <Input
@@ -35,6 +56,9 @@ const StudentLayout = (props) => {
                   placeholder="school name"
                   onChange={(e) => onChange(e)}
                 />
+                {errors &&
+                  errors.validationError &&
+                  handleValidationError(errors.validationError, 'school')}
               </FormGroup>
               <FormGroup>
                 <Input
@@ -52,10 +76,17 @@ const StudentLayout = (props) => {
                       </option>
                     ))}
                 </Input>
+                {errors &&
+                  errors.validationError &&
+                  handleValidationError(errors.validationError, 'classStudy')}
               </FormGroup>
               <FormGroup>
-                <Button type="submit" className="submit-btn">
-                  submit
+                <Button
+                  type="submit"
+                  className="submit-btn"
+                  disabled={state.spinner}
+                >
+                  {state.spinner ? <Spinner /> : 'Submit'}
                 </Button>
               </FormGroup>
             </Form>
