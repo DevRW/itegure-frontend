@@ -60,6 +60,7 @@ const CreateStudent = (props) => {
           title="Assign new student"
           errors={errors}
           message={state.message}
+          buttonName="submit"
         ></Layout>
       )}
     </Fragment>

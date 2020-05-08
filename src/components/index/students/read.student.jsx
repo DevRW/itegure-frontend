@@ -12,7 +12,11 @@ import CreateStudent from './create.student';
 import { connect } from 'react-redux';
 import { readAllStudent, deleteStudent } from '../../../redux/students/actions';
 import { getAllClass } from '../../../redux/classes/actions';
-import { Spinner } from '../../helpers/reusable/loading';
+import {
+  Spinner,
+  LoadingWait,
+  NotFoundMessage,
+} from '../../helpers/reusable/loading';
 import EditStudent from './edit.student';
 import './student.scss';
 
@@ -88,6 +92,16 @@ const ReadStudent = (props) => {
           )}
         </div>
         <Row>
+          {state.loading && (
+            <Col md="12">
+              <LoadingWait />
+            </Col>
+          )}
+          {readAll && readAll.length === 0 && (
+            <Col md="12">
+              <NotFoundMessage message="you haven't added your student." />
+            </Col>
+          )}
           {readAll &&
             readAll.length !== 0 &&
             readAll.map((item, i) => (

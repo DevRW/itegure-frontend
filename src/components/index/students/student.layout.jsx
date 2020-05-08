@@ -15,6 +15,7 @@ const StudentLayout = (props) => {
     onChange,
     errors,
     message,
+    buttonName,
   } = props;
   return (
     <div className="student">
@@ -86,7 +87,7 @@ const StudentLayout = (props) => {
                   className="submit-btn"
                   disabled={state.spinner}
                 >
-                  {state.spinner ? <Spinner color="text-light" /> : 'Submit'}
+                  {state.spinner ? <Spinner color="text-light" /> : buttonName}
                 </Button>
               </FormGroup>
             </Form>

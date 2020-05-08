@@ -69,6 +69,7 @@ const EditStudent = (props) => {
           title="Edit student"
           errors={errors}
           message={state.message}
+          buttonName="update"
         ></Layout>
       )}
     </Fragment>
