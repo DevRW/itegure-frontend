@@ -6,13 +6,24 @@ import { BsPhone, BsFileEarmarkCheck, BsPower } from 'react-icons/bs';
 import { NAME, PHONE_NUMBER } from '../../../redux/subscriptions/types';
 import { getStorage, removeItem } from '../../../redux/helpers/action.helper';
 import {IS_AUTH, SUBSCRIPTION_TOKEN} from '../../../redux/subscriptions/types';
-const Profile = () => {
+import {unSubscribe} from '../../../redux/subscriptions/actions';
+import {connect} from 'react-redux';
+
+const mapState = (state)=>({
+  subscriptions: state.subscriptions
+});
+
+const connector = connect(mapState, {unSubscribe});
+const Profile = (props) => {
   const name = getStorage(NAME);
   const phoneNumber = getStorage(PHONE_NUMBER);
   const logout = ()=>{
     removeItem(IS_AUTH);
     removeItem(SUBSCRIPTION_TOKEN);
     window.location.href = '/';
+  }
+  const closeAccount = ()=>{
+    props.unSubscribe();
   }
   return (
     <div className="menu-cnt">
@@ -60,7 +71,7 @@ const Profile = () => {
                     </Link>
                   </NavItem>
                   <NavItem>
-                    <Link className="nav-link" to="#">
+                    <Link className="nav-link" to="#" onClick={closeAccount}>
                       <div className="d-flex">
                         <div className="pr-2">
                           <BsFileEarmarkCheck />
@@ -78,4 +89,4 @@ const Profile = () => {
     </div>
   );
 };
-export default Profile;
+export default connector(Profile);
