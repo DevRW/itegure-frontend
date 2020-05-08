@@ -63,7 +63,7 @@ const Dashboard = (props) => {
                   <div className="title-name">inbox</div>
                 </div>
                 {state.loading && (
-                  <div className="m-5 d-flex justify-content-center align-items-center text-align-center loadings">
+                  <div className="m-5 d-flex justify-content-center align-items-center text-align-center loadings" style={{height: '50%'}}>
                     <LoadingWait />
                   </div>
                 )}
