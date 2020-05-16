@@ -3,7 +3,7 @@ import { Container, Navbar } from 'reactstrap';
 import logo from '../../../assets/images/itegure.svg';
 import { useLocation, Link } from 'react-router-dom';
 import AuthMenu from './auth.menu';
-import Profile from './subscriber.profile';
+import Profile from './parent.profile';
 const Header = (props) => {
   const { onOpen } = props;
   const location = useLocation().pathname;

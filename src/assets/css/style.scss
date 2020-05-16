@@ -145,4 +145,98 @@
             width: 20%;
         }
     }
+    .latest-performance{
+        position: relative;
+        width: 70%;
+    }
+    .titles{
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 1.5rem !important;
+        margin-left: 4px;
+    }
+    .b-box{
+        box-shadow: 0px 5px 10px 0px #0000001c;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 20px;
+        position: relative;
+        cursor: pointer;
+        a{
+            text-decoration: none;
+            color: $blackColor;
+        }
+        .box-number{
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 5px;
+            color: $blueColor;
+        }
+        .b-icon{
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 35px;
+            margin-right: 10px;
+           margin-top: 5px;
+        }
+    }
+    .sections{
+        position: relative;
+        .section-header{
+            position: relative;
+        }
+    }
+    .m--75{
+        position: relative;
+        width: 70%;
+    }
+}
+.auth-ad{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 70vh;
+    padding-top: 100px;
+    .ad-logo{
+        width: 150px;
+        margin-bottom: 1rem;
+    }
+    .title{
+        font-weight: bold;
+        font-size: 17px;
+        margin: 10px;
+        margin-bottom: 3rem;
+    }
+    .forms-ad{
+        width: 30%;
+        position: relative;
+        input, button{
+            width: 100%;
+            height: 70px;
+            border-radius: 15px;
+            border: none;
+            outline: none !important;
+            box-shadow: none !important;
+            font-size: 16px;
+        }
+        input{
+          box-shadow: 0px 1px 2px 1px #eaeaea !important;
+          padding-left: 20px;
+        }
+        button{
+            background: $blackColor;
+            font-weight: bold;
+        }
+        .ad-error{
+            text-align: center;
+            font-size: 12px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    }
+}
+.red-color{
+    color: $redColor;
 }
