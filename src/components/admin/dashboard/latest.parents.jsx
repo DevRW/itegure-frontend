@@ -1,7 +1,8 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import { FaMapSigns } from 'react-icons/fa';
-import { BsFilterLeft, BsListTask, BsGrid1X2 } from 'react-icons/bs';
+import { BsFilterLeft, BsPhone, BsPeopleFill, BsReplyAll } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 const LatestParent = () => {
   return (
     <div className="mt-5 sections">
@@ -24,7 +25,15 @@ const LatestParent = () => {
                   </div>
                   <div className="d-flex align-items-center">
                     <div>
-                      <BsListTask />
+                      <BsPhone />
+                    </div>
+                    <div className="pl-2">
+                      <small>0786601003</small>
+                    </div>
+                  </div>
+                  <div className="d-flex align-items-center">
+                    <div>
+                      <BsPeopleFill />
                     </div>
                     <div className="pl-2">
                       <small>
@@ -35,50 +44,18 @@ const LatestParent = () => {
                 </div>
               </div>
             </Col>
-            <Col md="4">
-              <div className="st-div d-flex align-items-center">
-                <div className="ls">
-                  <div className="d-flex align-items-center">
-                    <div>
-                      <BsFilterLeft />
-                    </div>
-                    <div className="pl-2">Kalisa claude</div>
-                  </div>
-                  <div className="d-flex align-items-center">
-                    <div>
-                      <BsListTask />
-                    </div>
-                    <div className="pl-2">
-                      <small>
-                        students <b>100</b>
-                      </small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Col>
-            <Col md="4">
-              <div className="st-div d-flex align-items-center">
-                <div className="ls">
-                  <div className="d-flex align-items-center">
-                    <div>
-                      <BsFilterLeft />
-                    </div>
-                    <div className="pl-2">Kalisa claude</div>
-                  </div>
-                  <div className="d-flex align-items-center">
-                    <div>
-                      <BsListTask />
-                    </div>
-                    <div className="pl-2">
-                      <small>
-                        students <b>100</b>
-                      </small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Col>
+          </Row>
+          <Row>
+            <div className="mt-4">
+              <Col md="12">
+                <Link to="#">
+                  <i className="pr-2">
+                    <BsReplyAll />
+                  </i>
+                  view more
+                </Link>
+              </Col>
+            </div>
           </Row>
         </div>
       </Container>

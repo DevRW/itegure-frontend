@@ -1,16 +1,10 @@
 import React, { Fragment, useState } from 'react';
-import { Nav, NavItem, Button } from 'reactstrap';
+import { Nav, NavItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FaOsi } from 'react-icons/fa';
-import { BsPhone, BsFileEarmarkCheck, BsPower } from 'react-icons/bs';
-import {
-  NAME,
-  PHONE_NUMBER,
-  IS_SUBSCRIBED,
-  IS_AUTH,
-  SUBSCRIPTION_TOKEN,
-} from '../../../redux/subscriptions/types';
-import { getStorage, removeItem } from '../../../redux/helpers/action.helper';
+import { BsPhone, BsFileEarmarkCheck } from 'react-icons/bs';
+import { NAME, PHONE_NUMBER } from '../../../redux/subscriptions/types';
+import { getStorage } from '../../../redux/helpers/action.helper';
 import { unSubscribe } from '../../../redux/subscriptions/actions';
 import { connect } from 'react-redux';
 import Unsubscribe from '../../index/unsubscribe/unsbuscribe';
@@ -24,12 +18,6 @@ const Profile = (props) => {
   const [state, setState] = useState({ isOpen: false });
   const name = getStorage(NAME);
   const phoneNumber = getStorage(PHONE_NUMBER);
-  const logout = () => {
-    removeItem(IS_AUTH);
-    removeItem(SUBSCRIPTION_TOKEN);
-    removeItem(IS_SUBSCRIBED);
-    window.location.href = '/';
-  };
   const closeAccount = () => {
     setState({ ...state, isOpen: !state.isOpen });
   };

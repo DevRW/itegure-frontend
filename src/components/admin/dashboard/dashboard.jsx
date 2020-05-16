@@ -6,7 +6,6 @@ import {
   FaFortAwesomeAlt,
   FaChessQueen,
   FaLevelDownAlt,
-  FaMapSigns,
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import '../../index/students/student.scss';

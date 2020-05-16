@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from 'react';
+import React from 'react';
 import { Nav, NavItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FaOsi } from 'react-icons/fa';
 import { BsFillEnvelopeFill, BsFileEarmarkCheck } from 'react-icons/bs';
-import { NAME, PHONE_NUMBER } from '../../../redux/subscriptions/types';
+import { NAME } from '../../../redux/subscriptions/types';
 import { getStorage } from '../../../redux/helpers/action.helper';
 import { connect } from 'react-redux';
 
@@ -13,9 +13,7 @@ const mapState = (state) => ({
 
 const connector = connect(mapState);
 const AdminProfile = (props) => {
-  const [state, setState] = useState({ isOpen: false });
   const name = getStorage(NAME);
-  const phoneNumber = getStorage(PHONE_NUMBER);
   return (
     <NavItem>
       <div className="profile-info">
