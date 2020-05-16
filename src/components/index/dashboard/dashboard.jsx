@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Layout from '../../layouts';
 import { Container, Row, Col } from 'reactstrap';
 import './dashboard.scss';
-import { BsChatSquareDots } from 'react-icons/bs';
 import ViewStudent from '../students/read.student';
 import { readAllStudent } from '../../../redux/students/actions';
 import { connect } from 'react-redux';
 import { viewNotifications } from '../../../redux/subscriptions/actions';
-import { LoadingWait, NotFoundMessage } from '../../helpers/reusable/loading';
 import Message from './message';
 const mapState = (state) => ({
   studentReducer: state.students,

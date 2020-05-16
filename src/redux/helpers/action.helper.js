@@ -1,3 +1,4 @@
+import { IS_AUTH, SUBSCRIPTION_TOKEN, IS_SUBSCRIBED } from '../subscriptions/types';
 export const dispatchAction = ({ type, payload, dispatch }) => {
   dispatch({ type, payload });
 };
@@ -11,4 +12,10 @@ export const getStorage = (item) => {
 };
 export const removeItem = (item) => {
   sessionStorage.removeItem(item);
+};
+export const logout = () => {
+  removeItem(IS_AUTH);
+  removeItem(SUBSCRIPTION_TOKEN);
+  removeItem(IS_SUBSCRIBED);
+  window.location.href = '/';
 };

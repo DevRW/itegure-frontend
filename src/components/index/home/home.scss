@@ -21,18 +21,18 @@
         font-weight: bold;
     }
     .sub-title{
-        background: -webkit-linear-gradient(262deg, #ff7854, #fd267d); 
-        -webkit-text-fill-color: transparent; 
-        -webkit-background-clip: text;
+        // background: -webkit-linear-gradient(262deg, #ff7854, #fd267d); 
+        // -webkit-text-fill-color: transparent; 
+        // -webkit-background-clip: text;
+        color: $blueColor;
     }
     .l-about{
         width: 70%;
-        font-weight: bold;
         font-size: 14px;
         .home-icon{
             font-size: 16px;
             i{
-                color: $redColor;
+                color: $blueColor;
             }
         }
     }

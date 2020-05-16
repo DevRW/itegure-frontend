@@ -46,7 +46,7 @@ const VerifyCode = (props) => {
           <Input
             type="text"
             name="code"
-            placeholder="07871"
+            placeholder="enter verification code"
             onChange={onChange}
             value={state.code}
           />

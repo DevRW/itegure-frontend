@@ -38,7 +38,7 @@
                 box-shadow: none !important;
             }
             button{
-                background: $redColor;
+                background: $blueColor;
                 border: none !important;
                 box-shadow: none !important;
                 font-weight: bold;
@@ -78,9 +78,9 @@
 }
 .success-message{
     position: absolute;
-    color: #1b9a49 !important;
+    color: $blueColor !important;
     margin-top: 10px;
     top: 0;
-    margin-left: 100px;
+    margin-left: 130px;
     margin-top: 22px;
 }

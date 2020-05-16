@@ -20,14 +20,12 @@ const Home = () => {
               <div className="mt-5 intro">
                 <div className="w-div">
                   <div className="font-weight-bold welcome-title">Welcome</div>
-                  <div className="font-weight-bold sub-title">
-                    to learning reminder
-                  </div>
+                  <div className="font-weight-bold sub-title">to itegure</div>
                 </div>
                 <div className="mt-5 l-about">
-                  lreminder is simply dummy text of the printing and typesetting
-                  industry. Lorem Ipsum has been the industry's standard dummy text
-                  ever since the 1500s.
+                  We are here to help you to get information on time about the
+                  schedule of the courses that your children will be learning on
+                  Radio and TV.
                 </div>
                 <div className="mt-5 l-about">
                   <div className="mt-4">

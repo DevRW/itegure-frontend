@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Navbar, NavbarBrand } from 'reactstrap';
-import logo from '../../../assets/images/logo-pro.svg';
+import logo from '../../../assets/images/itegure.svg';
 import { useLocation } from 'react-router-dom';
 import AuthMenu from './auth.menu';
 import Profile from './subscriber.profile';
