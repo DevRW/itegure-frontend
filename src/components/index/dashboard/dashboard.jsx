@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Layout from '../../layouts';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Alert } from 'reactstrap';
 import './dashboard.scss';
 import ViewStudent from '../students/read.student';
 import { readAllStudent } from '../../../redux/students/actions';
@@ -13,7 +13,7 @@ const mapState = (state) => ({
 });
 const connector = connect(mapState, { readAllStudent, viewNotifications });
 const Dashboard = (props) => {
-  const { readAll } = props.studentReducer;
+  const { readAll, errors: studentErrors } = props.studentReducer;
   const { notifications } = props.subscriptionReducer;
   const [state, setState] = useState({ loading: false });
   useEffect(() => {
@@ -28,8 +28,11 @@ const Dashboard = (props) => {
     if (notifications) {
       setState({ ...state, loading: false });
     }
+    if (studentErrors) {
+      setState({ ...state, loading: false });
+    }
     // eslint-disable-next-line
-  }, [props.subscriptionReducer]);
+  }, [props.subscriptionReducer, props.studentReducer]);
   return (
     <Layout>
       <div className="sub-dashboard">
@@ -53,6 +56,12 @@ const Dashboard = (props) => {
         </Container>
         <Container>
           <Row>
+            {studentErrors && studentErrors.serverError && (
+              <Alert color="danger">{studentErrors.serverError}</Alert>
+            )}
+            {studentErrors && studentErrors.notFoundError && (
+              <Alert color="danger">{studentErrors.notFoundError}</Alert>
+            )}
             <Message notifications={notifications} state={state} />
             <ViewStudent />
           </Row>
