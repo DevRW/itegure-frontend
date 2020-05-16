@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { IS_AUTH, IS_SUBSCRIBED } from '../../../redux/subscriptions/types';
 import { getStorage, logout } from '../../../redux/helpers/action.helper';
 import { BsPower } from 'react-icons/bs';
-import { FaWpbeginner, FaLocationArrow } from 'react-icons/fa';
+import { FaLocationArrow } from 'react-icons/fa';
 const AuthMenu = (props) => {
   const { onOpen } = props;
   return (
