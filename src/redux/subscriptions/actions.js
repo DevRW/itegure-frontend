@@ -10,6 +10,7 @@ import {
   PHONE_NUMBER,
   CREATE_SUBSCRIPTION,
   READ_ALL_NOTIFICATION,
+  IS_SUBSCRIBED,
 } from './types';
 
 export const login = (information) => async (dispatch) => {
@@ -36,6 +37,7 @@ export const authenticate = (information) => async (dispatch) => {
     const { message, token } = data.result;
     setStorage({ item: SUBSCRIPTION_TOKEN, value: token });
     setStorage({ item: IS_AUTH, value: true });
+    setStorage({ item: IS_SUBSCRIBED, value: true });
     dispatchAction({ type: LOGIN, payload: message, dispatch });
     window.location.href = '/home';
   } catch (error) {
@@ -66,6 +68,7 @@ export const unSubscribe = () => async (dispatch) => {
     await axios.delete('/subscriptions/unsubscribe');
     removeItem(IS_AUTH);
     removeItem(SUBSCRIPTION_TOKEN);
+    removeItem(IS_SUBSCRIBED);
     window.location.href = '/';
   } catch (error) {
     const { data } = error.response;

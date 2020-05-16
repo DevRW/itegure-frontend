@@ -45,7 +45,7 @@ const Subscribe = (props) => {
             <Input
               type="text"
               name="name"
-              placeholder="your name"
+              placeholder="enter your name"
               value={state.name}
               onChange={onChange}
             />
@@ -57,7 +57,7 @@ const Subscribe = (props) => {
             <Input
               type="text"
               name="phoneNumber"
-              placeholder="0786605001"
+              placeholder="enter phone number"
               value={state.phoneNumber}
               onChange={onChange}
             />

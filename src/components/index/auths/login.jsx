@@ -57,7 +57,7 @@ const Login = (props) => {
               <Input
                 type="text"
                 name="phoneNumber"
-                placeholder="0786605001"
+                placeholder="enter phone number"
                 onChange={onChange}
                 value={state.phoneNumber}
               />
