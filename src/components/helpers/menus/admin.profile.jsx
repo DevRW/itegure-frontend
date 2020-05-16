@@ -6,7 +6,7 @@ import { BsFillEnvelopeFill, BsFileEarmarkCheck } from 'react-icons/bs';
 import { NAME } from '../../../redux/subscriptions/types';
 import { getStorage } from '../../../redux/helpers/action.helper';
 import { connect } from 'react-redux';
-
+import { EMAIL } from '../../../redux/user/types';
 const mapState = (state) => ({
   subscriptions: state.subscriptions,
 });
@@ -14,6 +14,7 @@ const mapState = (state) => ({
 const connector = connect(mapState);
 const AdminProfile = (props) => {
   const name = getStorage(NAME);
+  const email = getStorage(EMAIL);
   return (
     <NavItem>
       <div className="profile-info">
@@ -28,7 +29,9 @@ const AdminProfile = (props) => {
           <div className="red-color">
             <BsFillEnvelopeFill /> &nbsp;
           </div>
-          <div style={{ fontSize: '12px' }}>gracian2020@gmail.com</div>
+          <div style={{ fontSize: '13px' }}>
+            {email && email !== '' ? email : 'no-email'}
+          </div>
         </div>
         <div className="profile-menu mt-2">
           <Nav vertical>

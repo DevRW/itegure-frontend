@@ -10,7 +10,11 @@ import {
 import { Link } from 'react-router-dom';
 import '../../index/students/student.scss';
 import LParents from './latest.parents';
+import {NAME} from '../../../redux/subscriptions/types';
+import { getStorage } from '../../../redux/helpers/action.helper';
+
 const Dashboard = (props) => {
+  const name = getStorage(NAME);
   return (
     <Layout>
       <div className="sub-dashboard">
@@ -18,7 +22,7 @@ const Dashboard = (props) => {
           <Row>
             <Col md="10">
               <div className="dash-intro">
-                welcome back <b>gratien</b>
+               welcome back <b>{name && name !== '' && name}</b>
               </div>
             </Col>
           </Row>
