@@ -36,67 +36,47 @@ const Profile = (props) => {
   return (
     <Fragment>
       {state.isOpen && <Unsubscribe close={closeAccount} />}
-      <div className="menu-cnt">
-        <Nav pills>
-          <Fragment>
-            <NavItem>
-              <Link className="btn btn-xs btn-border btn-circle" to="#">
-                <Button type="button" className="auth-link-btn">
-                  <div className="d-flex logout-btn" onClick={logout}>
-                    <div className="log-icon">
-                      <BsPower />
+      <NavItem>
+        <div className="profile-info">
+          <div className="d-flex">
+            <div className="red-color">
+              <FaOsi />
+              &nbsp;
+            </div>
+            <div>{name && name !== '' ? name : 'no names'}</div>
+          </div>
+          <div className="d-flex">
+            <div className="red-color">
+              <BsPhone /> &nbsp;
+            </div>
+            <div>{phoneNumber && phoneNumber !== '' ? phoneNumber : 'no phone'}</div>
+          </div>
+          <div className="profile-menu mt-2">
+            <Nav vertical>
+              <NavItem>
+                <Link className="nav-link" to="#">
+                  <div className="d-flex">
+                    <div className="pr-2">
+                      <BsFileEarmarkCheck />
                     </div>
-                    <div>logout</div>
+                    <div> + students</div>
                   </div>
-                </Button>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <div className="profile-info">
-                <div className="d-flex">
-                  <div className="red-color">
-                    <FaOsi />
-                    &nbsp;
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link className="nav-link" to="#" onClick={closeAccount}>
+                  <div className="d-flex">
+                    <div className="pr-2">
+                      <BsFileEarmarkCheck />
+                    </div>
+                    <div>unsubscribe</div>
                   </div>
-                  <div>{name && name !== '' ? name : 'no names'}</div>
-                </div>
-                <div className="d-flex">
-                  <div className="red-color">
-                    <BsPhone /> &nbsp;
-                  </div>
-                  <div>
-                    {phoneNumber && phoneNumber !== '' ? phoneNumber : 'no phone'}
-                  </div>
-                </div>
-                <div className="profile-menu mt-2">
-                  <Nav vertical>
-                    <NavItem>
-                      <Link className="nav-link" to="#">
-                        <div className="d-flex">
-                          <div className="pr-2">
-                            <BsFileEarmarkCheck />
-                          </div>
-                          <div> + students</div>
-                        </div>
-                      </Link>
-                    </NavItem>
-                    <NavItem>
-                      <Link className="nav-link" to="#" onClick={closeAccount}>
-                        <div className="d-flex">
-                          <div className="pr-2">
-                            <BsFileEarmarkCheck />
-                          </div>
-                          <div>unsubscribe</div>
-                        </div>
-                      </Link>
-                    </NavItem>
-                  </Nav>
-                </div>
-              </div>
-            </NavItem>
-          </Fragment>
-        </Nav>
-      </div>
+                </Link>
+              </NavItem>
+            </Nav>
+          </div>
+        </div>
+      </NavItem>
     </Fragment>
   );
 };

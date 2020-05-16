@@ -145,4 +145,51 @@
             width: 20%;
         }
     }
+    .latest-performance{
+        position: relative;
+        width: 70%;
+    }
+    .titles{
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 1.5rem !important;
+        margin-left: 4px;
+    }
+    .b-box{
+        box-shadow: 0px 5px 10px 0px #0000001c;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 20px;
+        position: relative;
+        cursor: pointer;
+        a{
+            text-decoration: none;
+            color: $blackColor;
+        }
+        .box-number{
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 5px;
+            color: $blueColor;
+        }
+        .b-icon{
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 35px;
+            margin-right: 10px;
+           margin-top: 5px;
+        }
+    }
+    .sections{
+        position: relative;
+        .section-header{
+            position: relative;
+        }
+    }
+    .m--75{
+        position: relative;
+        width: 70%;
+    }
 }
