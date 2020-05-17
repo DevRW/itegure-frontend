@@ -36,42 +36,22 @@ const AdminProfile = (props) => {
         <div className="profile-menu mt-2">
           <Nav vertical>
             <NavItem>
-              <Link className="nav-link" to="#">
+              <Link className="nav-link" to="/itegure-dashboard">
                 <div className="d-flex">
                   <div className="pr-2">
                     <BsFileEarmarkCheck />
                   </div>
-                  <div>Parents</div>
+                  <div>dashboard</div>
                 </div>
               </Link>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to="#">
+              <Link className="nav-link" to="/itegure-dashboard">
                 <div className="d-flex">
                   <div className="pr-2">
                     <BsFileEarmarkCheck />
                   </div>
-                  <div>Classes</div>
-                </div>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link className="nav-link" to="#">
-                <div className="d-flex">
-                  <div className="pr-2">
-                    <BsFileEarmarkCheck />
-                  </div>
-                  <div>Subjects</div>
-                </div>
-              </Link>
-            </NavItem>
-            <NavItem>
-              <Link className="nav-link" to="#">
-                <div className="d-flex">
-                  <div className="pr-2">
-                    <BsFileEarmarkCheck />
-                  </div>
-                  <div>Stations</div>
+                  <div>more</div>
                 </div>
               </Link>
             </NavItem>

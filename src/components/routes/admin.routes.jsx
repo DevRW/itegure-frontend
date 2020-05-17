@@ -4,6 +4,7 @@ import Dashboard from '../admin/dashboard/dashboard';
 import Login from '../admin/auth/login';
 import ViewAllStations from '../admin/stations/view.all';
 import ViewAllClassStudy from '../admin/classes/view.class';
+import ViewTimeTable from '../admin/timetables/parent';
 
 const AdminRouteComponent = () => {
   return (
@@ -12,6 +13,7 @@ const AdminRouteComponent = () => {
       <Route component={Login} path="/itegure-login" />
       <Route component={ViewAllStations} path="/itegure-stations" />
       <Route component={ViewAllClassStudy} path="/itegure-classes" />
+      <Route component={ViewTimeTable} path="/time-tables" />
     </Switch>
   );
 };

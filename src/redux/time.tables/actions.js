@@ -49,7 +49,7 @@ export const updateTimeTable = (information) => async (dispatch) => {
       subject,
     });
     dispatchAction({ type: UPDATE, payload: data.result, dispatch });
-    dispatch(viewAllStation());
+    dispatch(viewTimeTable());
   } catch (error) {
     const { data: dataError } = error.response;
     if (dataError) {
