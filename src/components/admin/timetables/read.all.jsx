@@ -6,13 +6,27 @@ import {
   LoadingWait,
   NotFoundMessage,
 } from '../../helpers/reusable/loading';
-import { BsFilterLeft, BsPhone, BsTrash2, BsBrush } from 'react-icons/bs';
+import { BsTrash2, BsBrush } from 'react-icons/bs';
+import { customHours, customMinutes } from '../../../redux/helpers/action.helper';
+
 const Read = (props) => {
   const { readAll, onDelete, openTimeTable, state } = props;
   return (
     <div className="view-in-table">
       <Container>
         <div className="mt-4 w-85 p-3">
+          <div className="pl-3">
+            {state.loading && (
+              <Row>
+                <LoadingWait />
+              </Row>
+            )}
+            {readAll && readAll.length <= 0 && (
+              <Row>
+                <NotFoundMessage message="stations not available" />
+              </Row>
+            )}
+          </div>
           <Row>
             {readAll && readAll.length > 0 && (
               <div className="table-responsive">
@@ -31,31 +45,58 @@ const Read = (props) => {
                   <tbody>
                     {readAll.map((item) => (
                       <tr className="trs" key={item.id}>
-                        <td>{new Date(item.date).toDateString()}</td>
+                        <td>
+                          <div>{new Date(item.date).toDateString()}</div>
+                          <div className="d-flex">
+                            <div className="font-weight-bold">
+                              {customHours(item.timeFrom)}:
+                              {customMinutes(item.timeFrom)}
+                            </div>
+                            <div className="pl-2 pr-2">
+                              <FaArrowsAltH />
+                            </div>
+                            <div className="font-weight-bold">
+                              {' '}
+                              {customHours(item.timeTo)}:{customMinutes(item.timeTo)}
+                            </div>
+                          </div>
+                        </td>
                         <td>
                           <div className="d-flex flex-column holder">
                             <div className="subject d-flex">
                               <div className="t-icon">
                                 <FaAirbnb />
                               </div>
-                              <div className="t-name">{'Mathematics'}</div>
+                              <div className="t-name">
+                                {item.subjectKeyId
+                                  ? item.subjectKeyId.name
+                                  : 'subject could not be found'}
+                              </div>
                             </div>
                             <div className="station d-flex">
                               <div className="t-icon">
                                 <FaAirbnb />
                               </div>
-                              <div className="t-name">{'Radio 1'}</div>
+                              <div className="t-name">
+                                {item.stationKeyId
+                                  ? item.stationKeyId.name
+                                  : 'station could not be found'}
+                              </div>
                             </div>
                             <div className="subject d-flex">
                               <div className="t-icon">
                                 <FaAirbnb />
                               </div>
-                              <div className="t-name">{'P6'}</div>
+                              <div className="t-name">
+                                {item.classStudyKeyId
+                                  ? item.classStudyKeyId.name
+                                  : 'class could not be found'}
+                              </div>
                             </div>
                           </div>
                         </td>
                         <td>
-                          <div className="d-flex t-actions">
+                          <div className="d-flex t-actions action">
                             <Button
                               type="button"
                               className="ed"
@@ -68,7 +109,12 @@ const Read = (props) => {
                                 <BsBrush />
                               )}
                             </Button>
-                            <Button type="button" className="del">
+                            <Button
+                              type="button"
+                              className="del"
+                              disabled={state.delSpinner}
+                              onClick={() => onDelete(item.id)}
+                            >
                               {state.delSpinner && state.timeTableId === item.id ? (
                                 <Spinner color="text-light" />
                               ) : (

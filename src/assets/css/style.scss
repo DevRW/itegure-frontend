@@ -293,7 +293,6 @@
         top: 0;
         margin-left: 1.5rem;
         margin-top: 5px;
-        font-weight: bold;
         font-size: 12px;
     }
     .t-actions{
@@ -301,4 +300,8 @@
             margin: 5px;
         }
     }
+}
+.del{
+    background: $redColor;
+    border: 1px solid $redColor;
 }

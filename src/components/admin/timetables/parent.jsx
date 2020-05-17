@@ -35,12 +35,20 @@ const TimeTable = (props) => {
     timeTableId: '',
     edit: false,
     create: false,
+    delSpinner: false,
   });
   const { errors: timeTableErrors, readAll, message } = props.timeTableReducer;
   useEffect(() => {
     if (timeTableErrors || readAll) {
-      setState({ ...state, loading: false, spinner: false, timeTableId: '' });
+      setState({
+        ...state,
+        loading: false,
+        spinner: false,
+        timeTableId: '',
+        delSpinner: false,
+      });
     }
+    // eslint-disable-next-line
   }, [props.timeTableReducer]);
   useEffect(() => {
     const fetch = () => {
@@ -49,6 +57,7 @@ const TimeTable = (props) => {
       props.viewAllStation();
     };
     fetch();
+    // eslint-disable-next-line
   }, []);
   const onClose = () => {
     setState({ ...state, edit: false, create: false });
@@ -59,6 +68,10 @@ const TimeTable = (props) => {
   const openTimetable = (item) => {
     const { id: timeTableId } = item;
     setState({ ...state, timeTableId });
+  };
+  const onDelete = (id) => {
+    setState({ ...state, delSpinner: true });
+    props.deleteTimeTable({ timeTableId: id });
   };
   return (
     <Layout>
@@ -84,7 +97,12 @@ const TimeTable = (props) => {
             </div>
           </Row>
         </Container>
-        <ReadAll readAll={readAll} state={state} openTimeTable={openTimetable} />
+        <ReadAll
+          readAll={readAll}
+          state={state}
+          openTimeTable={openTimetable}
+          onDelete={onDelete}
+        />
       </div>
     </Layout>
   );
