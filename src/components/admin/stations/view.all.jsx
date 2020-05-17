@@ -7,6 +7,7 @@ import {
   viewAllStation,
   deleteStation,
   updateStation,
+  createStation,
 } from '../../../redux/stations/actions';
 import { SuccessMessage, AlertErrorMessage } from '../../helpers/reusable/loading';
 import ReadAll from './read.all';
@@ -18,6 +19,7 @@ const connector = connect(mapState, {
   viewAllStation,
   deleteStation,
   updateStation,
+  createStation,
 });
 const ViewAllStation = (props) => {
   const [state, setState] = useState({
@@ -31,28 +33,52 @@ const ViewAllStation = (props) => {
     type: '',
   });
   const { errors: stationErrors, readAll, message } = props.stationReducer;
+  const clearState = () => {
+    setState({
+      ...state,
+      loading: false,
+      delSpinner: false,
+      spinner: false,
+      modalSpinner: false,
+      editStation: false,
+      createStation: false,
+      name: '',
+      type: '',
+    });
+  };
   useEffect(() => {
-    const fetch = () => {
-      props.viewAllStation();
-    };
-    fetch();
-    // eslint-disable-next-line
-  }, []);
-  useEffect(() => {
-    if (stationErrors || readAll || message) {
+    if (stationErrors || readAll) {
       setState({
         ...state,
         loading: false,
         delSpinner: false,
         spinner: false,
-        stationId: '',
         modalSpinner: false,
       });
     }
+    if (message) {
+      clearState();
+    }
     // eslint-disable-next-line
   }, [props.stationReducer]);
-  const openStation = (stationId) => {
-    setState({ ...state, editStation: true, createStation: false, stationId });
+  useEffect(() => {
+    const fetch = () => {
+      setState({ ...state, loading: true });
+      props.viewAllStation();
+    };
+    fetch();
+    // eslint-disable-next-line
+  }, []);
+  const openStation = (item) => {
+    const { id: stationId, name, type } = item;
+    setState({
+      ...state,
+      editStation: true,
+      createStation: false,
+      stationId,
+      name,
+      type,
+    });
   };
   const onDeleteStation = (stationId) => {
     setState({ ...state, stationId, delSpinner: true });
@@ -61,6 +87,8 @@ const ViewAllStation = (props) => {
   const onUpdateStation = (e) => {
     e.preventDefault();
     setState({ ...state, modalSpinner: true });
+    const { stationId, name, type } = state;
+    props.updateStation({ stationId, name, type });
   };
   const onChange = (e) => {
     e.preventDefault();
@@ -69,9 +97,15 @@ const ViewAllStation = (props) => {
   };
   const onCreateStation = (e) => {
     e.preventDefault();
+    setState({ ...state, modalSpinner: true });
+    const { name, type } = state;
+    props.createStation({ name, type });
   };
   const onClose = () => {
     setState({ ...state, editStation: false, createStation: false });
+  };
+  const openCreateModal = () => {
+    setState({ ...state, createStation: true });
   };
   return (
     <Layout>
@@ -85,7 +119,7 @@ const ViewAllStation = (props) => {
           </Row>
           <Row>
             <div className="pl-4 mt-3">
-              <Button type="button" className="btn-new">
+              <Button type="button" className="btn-new" onClick={openCreateModal}>
                 + new station
               </Button>
               {message && <SuccessMessage message={message} suc={true} er={false} />}
@@ -112,6 +146,18 @@ const ViewAllStation = (props) => {
             title={'edit station'}
             onClose={onClose}
             buttonName={'update'}
+            message={message}
+          />
+        )}
+        {state.createStation && (
+          <StationModal
+            state={state}
+            onSubmit={onCreateStation}
+            onChange={onChange}
+            errors={stationErrors}
+            title={'add station'}
+            onClose={onClose}
+            buttonName={'submit'}
             message={message}
           />
         )}

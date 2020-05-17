@@ -1,12 +1,28 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
 import { BsFilterLeft, BsPhone, BsTrash2, BsBrush } from 'react-icons/bs';
-import { Spinner } from '../../helpers/reusable/loading';
+import {
+  Spinner,
+  LoadingWait,
+  NotFoundMessage,
+} from '../../helpers/reusable/loading';
 const ReadAll = (props) => {
   const { readAll, onDeleteStation, openStation, state } = props;
   return (
     <Container>
       <div className="mt-4 w-85">
+        <div className="pl-3">
+          {state.loading && (
+            <Row>
+              <LoadingWait />
+            </Row>
+          )}
+          {readAll && readAll.length <= 0 && (
+            <Row>
+              <NotFoundMessage message="stations not available" />
+            </Row>
+          )}
+        </div>
         <Row>
           {readAll &&
             readAll.length > 0 &&
@@ -34,7 +50,7 @@ const ReadAll = (props) => {
                       <Button
                         type="button"
                         className="ed"
-                        onClick={() => openStation(item.id)}
+                        onClick={() => openStation(item)}
                         disabled={state.stationId === item.id && state.spinner}
                       >
                         {state.spinner && state.stationId === item.id ? (

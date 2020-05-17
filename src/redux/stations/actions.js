@@ -14,10 +14,11 @@ export const viewAllStation = () => async (dispatch) => {
   }
 };
 
-export const createStation = ({ name }) => async (dispatch) => {
+export const createStation = ({ name, type }) => async (dispatch) => {
   dispatchAction({ type: ERRORS, payload: null, dispatch });
+  dispatchAction({ type: CREATE, payload: { message: null }, dispatch });
   try {
-    const { data } = await axios.post('/stations', { name });
+    const { data } = await axios.post('/stations', { name, type });
     dispatchAction({ type: CREATE, payload: data.result, dispatch });
     dispatch(viewAllStation());
   } catch (error) {
@@ -28,10 +29,11 @@ export const createStation = ({ name }) => async (dispatch) => {
   }
 };
 
-export const updateStation = ({ name, stationId }) => async (dispatch) => {
+export const updateStation = ({ name, stationId, type }) => async (dispatch) => {
   dispatchAction({ type: ERRORS, payload: null, dispatch });
+  dispatchAction({ type: UPDATE, payload: { message: null }, dispatch });
   try {
-    const { data } = await axios.put(`/stations/${stationId}`, { name });
+    const { data } = await axios.put(`/stations/${stationId}`, { name, type });
     dispatchAction({ type: UPDATE, payload: data.result, dispatch });
     dispatch(viewAllStation());
   } catch (error) {

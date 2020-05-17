@@ -46,8 +46,8 @@ const StationModal = (props) => {
                   value={state.name}
                 />
                 {errors &&
-                  errors.validationErrors &&
-                  handleValidationError(errors.validationErrors, 'name')}
+                  errors.validationError &&
+                  handleValidationError(errors.validationError, 'name')}
               </FormGroup>
               <FormGroup>
                 <Input
@@ -57,8 +57,10 @@ const StationModal = (props) => {
                   onChange={onChange}
                 >
                   <option value="">select station</option>
-                  {stationType.map((item) => (
-                    <option value={item}>{item}</option>
+                  {stationType.map((item, i) => (
+                    <option value={item} key={i}>
+                      {item}
+                    </option>
                   ))}
                 </Input>
                 {errors &&
