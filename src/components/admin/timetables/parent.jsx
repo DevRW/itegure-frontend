@@ -6,23 +6,26 @@ import {
   viewTimeTable,
   deleteTimeTable,
   updateTimeTable,
-  createTimeTable
+  createTimeTable,
 } from '../.././../redux/time.tables/actions';
 import { viewAllStation } from '../../../redux/stations/actions';
 import { connect } from 'react-redux';
 import ReadAll from './read.all';
 import Modal from './modal';
 import { SuccessMessage, AlertErrorMessage } from '../../helpers/reusable/loading';
+import { getAllClass } from '../../../redux/classes/actions';
 const mapState = (state) => ({
   timeTableReducer: state.timeTables,
   stationReducer: state.stations,
+  classReducer: state.classes,
 });
 const connector = connect(mapState, {
   viewTimeTable,
   deleteTimeTable,
   updateTimeTable,
   viewAllStation,
-  createTimeTable
+  createTimeTable,
+  getAllClass,
 });
 const TimeTable = (props) => {
   const [state, setState] = useState({
@@ -32,15 +35,33 @@ const TimeTable = (props) => {
     date: new Date(),
     timeFrom: '',
     timeTo: '',
-    subject: '',
+    subject: '2',
     station: '',
     timeTableId: '',
     edit: false,
     create: false,
     delSpinner: false,
+    classStudy: '',
   });
   const { errors: timeTableErrors, readAll, message } = props.timeTableReducer;
   const { readAll: stations } = props.stationReducer;
+  const { classes } = props.classReducer;
+  const clearState = () => {
+    setState({
+      ...state,
+      loading: false,
+      spinner: false,
+      timeTableId: '',
+      delSpinner: false,
+      modalSpinner: false,
+      timeFrom: '',
+      timeTo: '',
+      station: '',
+      create: false,
+      edit: false,
+      classStudy: '',
+    });
+  };
   useEffect(() => {
     if (timeTableErrors || readAll) {
       setState({
@@ -49,8 +70,11 @@ const TimeTable = (props) => {
         spinner: false,
         timeTableId: '',
         delSpinner: false,
-        modalSpinner: false
+        modalSpinner: false,
       });
+    }
+    if (message) {
+      clearState();
     }
     // eslint-disable-next-line
   }, [props.timeTableReducer]);
@@ -59,6 +83,7 @@ const TimeTable = (props) => {
       setState({ ...state, loading: true });
       props.viewTimeTable();
       props.viewAllStation();
+      props.getAllClass();
     };
     fetch();
     // eslint-disable-next-line
@@ -91,8 +116,8 @@ const TimeTable = (props) => {
   const onCreate = (e) => {
     e.preventDefault();
     setState({ ...state, modalSpinner: true });
-    const { timeFrom, timeTo, date, subject, station } = state;
-    props.createTimeTable({ timeFrom, timeTo, date, subject, station });
+    const { timeFrom, timeTo, date, subject, station, classStudy } = state;
+    props.createTimeTable({ timeFrom, timeTo, date, subject, station, classStudy });
   };
   const handleDate = (date) => {
     setState({ ...state, date });
@@ -138,6 +163,7 @@ const TimeTable = (props) => {
             onClose={onClose}
             stations={stations}
             handleDate={handleDate}
+            classes={classes}
           />
         )}
       </div>

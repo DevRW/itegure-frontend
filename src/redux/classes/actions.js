@@ -1,4 +1,10 @@
-import { ERRORS, VIEW_ALL_CLASS, CREATE_CLASS, DELETE_CLASS, UPDATE_CLASS  } from './types';
+import {
+  ERRORS,
+  VIEW_ALL_CLASS,
+  CREATE_CLASS,
+  DELETE_CLASS,
+  UPDATE_CLASS,
+} from './types';
 import axios from 'axios';
 import { dispatchAction } from '../helpers/action.helper';
 
@@ -31,7 +37,11 @@ export const deleteClass = ({ classStudyId }) => async (dispatch) => {
   try {
     const { data } = await axios.delete(`/classes/${classStudyId}`);
     const { message } = data.result;
-    dispatchAction({ type: DELETE_CLASS, payload: { message, classStudyId }, dispatch });
+    dispatchAction({
+      type: DELETE_CLASS,
+      payload: { message, classStudyId },
+      dispatch,
+    });
   } catch (error) {
     const { data: dataError } = error.response;
     if (dataError) {

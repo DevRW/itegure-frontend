@@ -18,13 +18,17 @@ export const createTimeTable = (information) => async (dispatch) => {
   dispatchAction({ type: ERRORS, payload: null, dispatch });
   dispatchAction({ type: CREATE, payload: { message: null }, dispatch });
   try {
-    const { timeFrom, timeTo, station, subject, date } = information;
+    const { timeFrom, timeTo, station, subject, date, classStudy } = information;
+    const newDate = new Date(`${date}`);
     const { data } = await axios.post('/timetable', {
-      date,
+      date: `${newDate.getFullYear()}-${
+        newDate.getMonth() + 1
+      }-${newDate.getDate()}`,
       timeFrom,
       timeTo,
       station,
       subject,
+      classStudy,
     });
     dispatchAction({ type: CREATE, payload: data.result, dispatch });
     dispatch(viewTimeTable());
@@ -40,13 +44,22 @@ export const updateTimeTable = (information) => async (dispatch) => {
   dispatchAction({ type: ERRORS, payload: null, dispatch });
   dispatchAction({ type: UPDATE, payload: { message: null }, dispatch });
   try {
-    const { timeFrom, timeTo, station, subject, date, timeTableId } = information;
+    const {
+      timeFrom,
+      timeTo,
+      station,
+      subject,
+      date,
+      timeTableId,
+      classStudy,
+    } = information;
     const { data } = await axios.put(`/timetable/${timeTableId}`, {
       timeFrom,
       timeTo,
       date,
       station,
       subject,
+      classStudy,
     });
     dispatchAction({ type: UPDATE, payload: data.result, dispatch });
     dispatch(viewTimeTable());

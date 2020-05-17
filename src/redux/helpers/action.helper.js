@@ -29,7 +29,7 @@ export const customMinutes = (value) => {
 };
 
 export const customHours = (value) => {
-  const date = new Date(value);
+  const date = new Date(`${value}`);
   if (date.getHours() < 10) {
     return `0${date.getHours()}`;
   }
