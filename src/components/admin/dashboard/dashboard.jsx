@@ -14,6 +14,7 @@ import LParents from './latest.parents';
 import { NAME } from '../../../redux/subscriptions/types';
 import { getStorage } from '../../../redux/helpers/action.helper';
 import Intro from '../../helpers/reusable/section.intro';
+
 const Dashboard = (props) => {
   const name = getStorage(NAME);
   return (
@@ -61,7 +62,7 @@ const Dashboard = (props) => {
               </Col>
               <Col md="3">
                 <div className="b-box">
-                  <Link to="#">
+                  <Link to="/itegure-stations">
                     <div>stations</div>
                     <div className="box-number">50</div>
                     <div className="b-icon">
