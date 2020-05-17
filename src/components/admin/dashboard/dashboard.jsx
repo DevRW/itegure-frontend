@@ -51,7 +51,7 @@ const Dashboard = (props) => {
               </Col>
               <Col md="3">
                 <div className="b-box">
-                  <Link to="#">
+                  <Link to="/itegure-classes">
                     <div>classes</div>
                     <div className="box-number">50</div>
                     <div className="b-icon">

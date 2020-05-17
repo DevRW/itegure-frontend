@@ -41,7 +41,7 @@ const AdminProfile = (props) => {
                   <div className="pr-2">
                     <BsFileEarmarkCheck />
                   </div>
-                  <div>parents</div>
+                  <div>Parents</div>
                 </div>
               </Link>
             </NavItem>
@@ -51,7 +51,7 @@ const AdminProfile = (props) => {
                   <div className="pr-2">
                     <BsFileEarmarkCheck />
                   </div>
-                  <div>classes</div>
+                  <div>Classes</div>
                 </div>
               </Link>
             </NavItem>
@@ -61,7 +61,17 @@ const AdminProfile = (props) => {
                   <div className="pr-2">
                     <BsFileEarmarkCheck />
                   </div>
-                  <div>subjects</div>
+                  <div>Subjects</div>
+                </div>
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link className="nav-link" to="#">
+                <div className="d-flex">
+                  <div className="pr-2">
+                    <BsFileEarmarkCheck />
+                  </div>
+                  <div>Stations</div>
                 </div>
               </Link>
             </NavItem>
