@@ -13,7 +13,7 @@ const AdminRouteComponent = () => {
       <Route component={Login} path="/itegure-login" />
       <Route component={ViewAllStations} path="/itegure-stations" />
       <Route component={ViewAllClassStudy} path="/itegure-classes" />
-      <Route component={ViewTimeTable} path="/time-tables" />
+      <Route component={ViewTimeTable} path="/itegure-timetables" />
     </Switch>
   );
 };

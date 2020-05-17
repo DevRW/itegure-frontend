@@ -6,6 +6,7 @@ import {
   viewTimeTable,
   deleteTimeTable,
   updateTimeTable,
+  createTimeTable
 } from '../.././../redux/time.tables/actions';
 import { viewAllStation } from '../../../redux/stations/actions';
 import { connect } from 'react-redux';
@@ -21,13 +22,14 @@ const connector = connect(mapState, {
   deleteTimeTable,
   updateTimeTable,
   viewAllStation,
+  createTimeTable
 });
 const TimeTable = (props) => {
   const [state, setState] = useState({
     loading: false,
     spinner: false,
     modalSpinner: false,
-    date: '',
+    date: new Date(),
     timeFrom: '',
     timeTo: '',
     subject: '',
@@ -38,6 +40,7 @@ const TimeTable = (props) => {
     delSpinner: false,
   });
   const { errors: timeTableErrors, readAll, message } = props.timeTableReducer;
+  const { readAll: stations } = props.stationReducer;
   useEffect(() => {
     if (timeTableErrors || readAll) {
       setState({
@@ -46,6 +49,7 @@ const TimeTable = (props) => {
         spinner: false,
         timeTableId: '',
         delSpinner: false,
+        modalSpinner: false
       });
     }
     // eslint-disable-next-line
@@ -72,6 +76,26 @@ const TimeTable = (props) => {
   const onDelete = (id) => {
     setState({ ...state, delSpinner: true });
     props.deleteTimeTable({ timeTableId: id });
+  };
+  const onUpdate = (e) => {
+    e.preventDefault();
+    setState({ ...state, modalSpinner: true });
+    const { timeFrom, timeTo, date, subject, station, timeTableId } = state;
+    props.updateStation({ timeFrom, timeTo, date, subject, station, timeTableId });
+  };
+  const onChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setState({ ...state, [name]: value });
+  };
+  const onCreate = (e) => {
+    e.preventDefault();
+    setState({ ...state, modalSpinner: true });
+    const { timeFrom, timeTo, date, subject, station } = state;
+    props.createTimeTable({ timeFrom, timeTo, date, subject, station });
+  };
+  const handleDate = (date) => {
+    setState({ ...state, date });
   };
   return (
     <Layout>
@@ -103,6 +127,19 @@ const TimeTable = (props) => {
           openTimeTable={openTimetable}
           onDelete={onDelete}
         />
+        {state.create && (
+          <Modal
+            state={state}
+            onChange={onChange}
+            onSubmit={onCreate}
+            buttonName={'submit'}
+            title={'new time table'}
+            errors={timeTableErrors}
+            onClose={onClose}
+            stations={stations}
+            handleDate={handleDate}
+          />
+        )}
       </div>
     </Layout>
   );

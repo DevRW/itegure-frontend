@@ -46,7 +46,7 @@ const AdminProfile = (props) => {
               </Link>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to="/itegure-dashboard">
+              <Link className="nav-link" to="#">
                 <div className="d-flex">
                   <div className="pr-2">
                     <BsFileEarmarkCheck />
