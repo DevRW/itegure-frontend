@@ -9,6 +9,7 @@ import {
   createTimeTable,
 } from '../.././../redux/time.tables/actions';
 import { viewAllStation } from '../../../redux/stations/actions';
+import { getAllSubject } from '../../../redux/subjects/actions';
 import { connect } from 'react-redux';
 import ReadAll from './read.all';
 import Modal from './modal';
@@ -25,6 +26,7 @@ const connector = connect(mapState, {
   deleteTimeTable,
   updateTimeTable,
   viewAllStation,
+  getAllSubject,
   createTimeTable,
   getAllClass,
 });
@@ -36,7 +38,7 @@ const TimeTable = (props) => {
     date: new Date(),
     timeFrom: '',
     timeTo: '',
-    subject: '2',
+    subject: '',
     station: '',
     timeTableId: '',
     edit: false,
@@ -85,6 +87,7 @@ const TimeTable = (props) => {
       props.viewTimeTable();
       props.viewAllStation();
       props.getAllClass();
+      props.getAllSubject();
     };
     fetch();
     // eslint-disable-next-line

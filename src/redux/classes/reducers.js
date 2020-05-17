@@ -18,10 +18,10 @@ const classReducer = (state = initialState, { type, payload }) => {
       return { ...state, message: createMessage };
     case DELETE_CLASS:
       const { message: deleteMessage, classStudyId } = payload;
-      const filter = state.readAll.filter(
+      const filter = state.classes.filter(
         (item) => Number(item.id) !== Number(classStudyId)
       );
-      return { ...state, message: deleteMessage, readAll: filter };
+      return { ...state, message: deleteMessage, classes: filter };
     case UPDATE_CLASS:
       const { message: updateMessage } = payload;
       return { ...state, message: updateMessage };

@@ -5,6 +5,7 @@ import Login from '../admin/auth/login';
 import ViewAllStations from '../admin/stations/view.all';
 import ViewAllClassStudy from '../admin/classes/view.class';
 import ViewTimeTable from '../admin/timetables/parent';
+import ViewAllSubject from '../admin/subjects/view.all';
 
 const AdminRouteComponent = () => {
   return (
@@ -14,6 +15,7 @@ const AdminRouteComponent = () => {
       <Route component={ViewAllStations} path="/itegure-stations" />
       <Route component={ViewAllClassStudy} path="/itegure-classes" />
       <Route component={ViewTimeTable} path="/itegure-timetables" />
+      <Route component={ViewAllSubject} path="/itegure-subjects" />
     </Switch>
   );
 };

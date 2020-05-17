@@ -40,7 +40,7 @@ const Dashboard = (props) => {
               </Col>
               <Col md="3">
                 <div className="b-box">
-                  <Link to="#">
+                  <Link to="/itegure-subjects">
                     <div>subjects</div>
                     <div className="box-number">50</div>
                     <div className="b-icon">
