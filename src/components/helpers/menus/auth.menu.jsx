@@ -28,7 +28,9 @@ const AuthMenu = (props) => {
               <Link
                 className="btn btn-xs btn-border btn-circle"
                 to={
-                  getStorage(IS_SUBSCRIBED) === String(true) ? '/home' : '/dashboard'
+                  getStorage(IS_SUBSCRIBED) === String(true)
+                    ? '/home'
+                    : '/itegure-dashboard'
                 }
               >
                 <div className="font-weight-bold mt-3" style={{ fontSize: '14px' }}>
