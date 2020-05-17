@@ -6,27 +6,21 @@ import {
   FaFortAwesomeAlt,
   FaChessQueen,
   FaLevelDownAlt,
+  FaMicroscope,
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import '../../index/students/student.scss';
 import LParents from './latest.parents';
 import { NAME } from '../../../redux/subscriptions/types';
 import { getStorage } from '../../../redux/helpers/action.helper';
+import Intro from '../../helpers/reusable/section.intro';
 
 const Dashboard = (props) => {
   const name = getStorage(NAME);
   return (
     <Layout>
       <div className="sub-dashboard">
-        <Container>
-          <Row>
-            <Col md="10">
-              <div className="dash-intro">
-                welcome back <b>{name && name !== '' && name}</b>
-              </div>
-            </Col>
-          </Row>
-        </Container>
+        <Intro value={`Welcome back`} bold={name} />
         <Container>
           <div className="latest-performance">
             <div className="titles">
@@ -62,6 +56,17 @@ const Dashboard = (props) => {
                     <div className="box-number">50</div>
                     <div className="b-icon">
                       <FaFortAwesomeAlt />
+                    </div>
+                  </Link>
+                </div>
+              </Col>
+              <Col md="3">
+                <div className="b-box">
+                  <Link to="/itegure-stations">
+                    <div>stations</div>
+                    <div className="box-number">50</div>
+                    <div className="b-icon">
+                      <FaMicroscope />
                     </div>
                   </Link>
                 </div>

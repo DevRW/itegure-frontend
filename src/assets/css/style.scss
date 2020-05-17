@@ -192,6 +192,25 @@
         position: relative;
         width: 70%;
     }
+    .w-85{
+        width: 85%;
+        position: relative;
+    }
+    .btn-new{
+        padding: 15px;
+        border-radius: 5px;
+    }
+    .msg-div{
+        position: absolute;
+        top: 0;
+        margin-left: 200px;
+        margin-top: 50px;
+        color: $blueColor;
+        text-transform: lowercase;
+    }
+    .custom-msg-error{
+        margin-top: 40px !important;
+    }
 }
 .auth-ad{
     position: relative;
