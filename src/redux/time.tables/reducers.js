@@ -1,6 +1,6 @@
 import { VIEW, CREATE, UPDATE, DELETE, ERRORS } from './types';
 
-const initialState = {};
+const initialState = { message: null };
 export const timeTableReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case VIEW:

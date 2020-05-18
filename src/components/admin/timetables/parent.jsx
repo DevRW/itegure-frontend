@@ -14,6 +14,7 @@ import ReadAll from './read.all';
 import Modal from './modal';
 import { SuccessMessage, AlertErrorMessage } from '../../helpers/reusable/loading';
 import { getAllClass } from '../../../redux/classes/actions';
+import { customHours, customMinutes } from '../../../redux/helpers/action.helper';
 const mapState = (state) => ({
   timeTableReducer: state.timeTables,
   stationReducer: state.stations,
@@ -95,8 +96,26 @@ const TimeTable = (props) => {
     setState({ ...state, create: true });
   };
   const openTimetable = (item) => {
-    const { id: timeTableId } = item;
-    setState({ ...state, timeTableId });
+    const {
+      id: timeTableId,
+      timeFrom,
+      timeTo,
+      date,
+      subject,
+      classStudy,
+      station,
+    } = item;
+    setState({
+      ...state,
+      timeTableId,
+      timeFrom: `${customHours(timeFrom)}:${customMinutes(timeFrom)}`,
+      timeTo: `${customHours(timeTo)}:${customMinutes(timeTo)}`,
+      date: new Date(date),
+      subject,
+      classStudy,
+      station,
+      edit: true,
+    });
   };
   const onDelete = (id) => {
     setState({ ...state, delSpinner: true });
@@ -105,8 +124,24 @@ const TimeTable = (props) => {
   const onUpdate = (e) => {
     e.preventDefault();
     setState({ ...state, modalSpinner: true });
-    const { timeFrom, timeTo, date, subject, station, timeTableId } = state;
-    props.updateStation({ timeFrom, timeTo, date, subject, station, timeTableId });
+    const {
+      timeFrom,
+      timeTo,
+      date,
+      subject,
+      station,
+      timeTableId,
+      classStudy,
+    } = state;
+    props.updateTimeTable({
+      timeFrom,
+      timeTo,
+      date,
+      subject,
+      station,
+      timeTableId,
+      classStudy,
+    });
   };
   const onChange = (e) => {
     e.preventDefault();
@@ -159,6 +194,20 @@ const TimeTable = (props) => {
             onSubmit={onCreate}
             buttonName={'submit'}
             title={'new time table'}
+            errors={timeTableErrors}
+            onClose={onClose}
+            stations={stations}
+            handleDate={handleDate}
+            classes={classes}
+          />
+        )}
+        {state.edit && (
+          <Modal
+            state={state}
+            onChange={onChange}
+            onSubmit={onUpdate}
+            buttonName={'update'}
+            title={'edit time table'}
             errors={timeTableErrors}
             onClose={onClose}
             stations={stations}

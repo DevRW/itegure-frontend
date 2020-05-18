@@ -49,17 +49,20 @@ export const updateTimeTable = (information) => async (dispatch) => {
       timeTo,
       station,
       subject,
-      date,
       timeTableId,
       classStudy,
+      date,
     } = information;
+    const newDate = new Date(`${date}`);
     const { data } = await axios.put(`/timetable/${timeTableId}`, {
       timeFrom,
       timeTo,
-      date,
       station,
       subject,
       classStudy,
+      date: `${newDate.getFullYear()}-${
+        newDate.getMonth() + 1
+      }-${newDate.getDate()}`,
     });
     dispatchAction({ type: UPDATE, payload: data.result, dispatch });
     dispatch(viewTimeTable());
