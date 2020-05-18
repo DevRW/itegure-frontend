@@ -259,3 +259,61 @@
 .red-color{
     color: $redColor;
 }
+.view-in-table{
+    th{
+        font-size: 13px;
+        border-bottom: 1px solid #f8f8f8 !important;
+    }
+    td{
+        font-size: 13px;
+    }
+    th, td{
+        padding: 20px;
+        border: none;
+    }
+    .holder{
+        margin-top: -10px;
+    }
+    .trs-thead{
+        border-left: 2px solid $blueColor;
+    }
+    .trs:hover{
+        border-left: 2px solid #6c757d;
+        cursor: pointer;
+    }
+    .station, .subject{
+        position: relative;
+    }
+    .t-icon{
+        color: #6c757d;
+        font-size: 15px;
+    }
+    .t-name{
+        position: absolute;
+        top: 0;
+        margin-left: 1.5rem;
+        margin-top: 5px;
+        font-size: 12px;
+    }
+    .t-actions{
+        button{
+            margin: 5px;
+        }
+    }
+}
+.del{
+    background: $redColor !important;
+    border: 1px solid $redColor !important;
+}
+.react-datepicker-wrapper{
+    width: 100%;
+}
+.datePicker{
+    width: 100%;
+    padding: 10px;
+}
+.changeError-onModal{
+    width: 300px !important;
+    font-size: 10px !important;
+    top: 25px !important;
+}

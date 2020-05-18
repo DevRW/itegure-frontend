@@ -19,3 +19,19 @@ export const logout = () => {
   removeItem(IS_SUBSCRIBED);
   window.location.href = '/';
 };
+
+export const customMinutes = (value) => {
+  const date = new Date(value);
+  if (date.getMinutes() < 10) {
+    return `0${date.getMinutes()}`;
+  }
+  return date.getMinutes();
+};
+
+export const customHours = (value) => {
+  const date = new Date(`${value}`);
+  if (date.getHours() < 10) {
+    return `0${date.getHours()}`;
+  }
+  return date.getHours();
+};

@@ -1,4 +1,10 @@
-import { ERRORS, VIEW_ALL_CLASS, CREATE_CLASS, DELETE_CLASS, UPDATE_CLASS } from './types';
+import {
+  ERRORS,
+  VIEW_ALL_CLASS,
+  CREATE_CLASS,
+  DELETE_CLASS,
+  UPDATE_CLASS,
+} from './types';
 
 const initialState = {
   message: null,
