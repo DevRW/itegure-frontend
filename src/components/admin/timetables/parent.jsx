@@ -20,6 +20,7 @@ const mapState = (state) => ({
   timeTableReducer: state.timeTables,
   stationReducer: state.stations,
   classReducer: state.classes,
+  subjectReducer: state.subjects
 });
 const connector = connect(mapState, {
   viewTimeTable,
@@ -49,6 +50,7 @@ const TimeTable = (props) => {
   const { errors: timeTableErrors, readAll, message } = props.timeTableReducer;
   const { readAll: stations } = props.stationReducer;
   const { classes } = props.classReducer;
+  const { subjects } = props.subjectReducer;
   const clearState = () => {
     setState({
       ...state,
@@ -202,6 +204,7 @@ const TimeTable = (props) => {
             stations={stations}
             handleDate={handleDate}
             classes={classes}
+            subjects={subjects}
           />
         )}
         {state.edit && (
@@ -216,6 +219,7 @@ const TimeTable = (props) => {
             stations={stations}
             handleDate={handleDate}
             classes={classes}
+            subjects={subjects}
           />
         )}
       </div>
