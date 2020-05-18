@@ -55,6 +55,7 @@ const Dashboard = (props) => {
     ) {
       setState({ ...state, loading: false });
     }
+    // eslint-disable-next-line
   }, [
     props.subjectReducer,
     props.userReducer,
@@ -70,6 +71,7 @@ const Dashboard = (props) => {
       props.getAllSubject();
     };
     fetch();
+    // eslint-disable-next-line
   }, []);
   return (
     <Layout>
