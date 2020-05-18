@@ -13,5 +13,5 @@ export const rootReducer = combineReducers({
   users: userReducer,
   stations: stationReducer,
   timeTables: timeTableReducer,
-  subjects
+  subjects,
 });

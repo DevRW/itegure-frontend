@@ -20,7 +20,7 @@ const mapState = (state) => ({
   timeTableReducer: state.timeTables,
   stationReducer: state.stations,
   classReducer: state.classes,
-  subjectReducer: state.subjects
+  subjectReducer: state.subjects,
 });
 const connector = connect(mapState, {
   viewTimeTable,

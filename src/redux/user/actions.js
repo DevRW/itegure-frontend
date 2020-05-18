@@ -1,4 +1,4 @@
-import { ERRORS, PROFILE, EMAIL } from './types';
+import { ERRORS, PROFILE, EMAIL, VIEW_PARENTS } from './types';
 import axios from 'axios';
 import { dispatchAction, setStorage } from '../helpers/action.helper';
 import {
@@ -31,5 +31,18 @@ export const currentProfile = () => async (dispatch) => {
   } catch (error) {
     const { data } = error.response;
     dispatchAction({ type: ERRORS, payload: data.error, dispatch });
+  }
+};
+
+export const viewAllParents = () => async (dispatch) => {
+  dispatchAction({ type: ERRORS, payload: null, dispatch });
+  try {
+    const { data } = await axios.get('/users/read/parents');
+    dispatchAction({ type: VIEW_PARENTS, payload: data.result, dispatch });
+  } catch (error) {
+    if (error) {
+      const { data } = error.response;
+      dispatchAction({ type: ERRORS, payload: data.error, dispatch });
+    }
   }
 };
