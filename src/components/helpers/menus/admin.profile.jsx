@@ -66,7 +66,9 @@ const AdminProfile = (props) => {
       {state.openMore && (
         <NavItem>
           <div className="profile-info more-menu">
-            <div className="close close-menu" onClick={()=>more()}>x close</div>
+            <div className="close close-menu" onClick={() => more()}>
+              x close
+            </div>
             <div className="profile-menu">
               <Nav className="navigation-top-grid mt-3 pb-2">
                 <NavItem>
