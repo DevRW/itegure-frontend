@@ -1,4 +1,10 @@
-import { ERRORS, VIEW_ALL_SUBJECT, CREATE_SUBJECT, DELETE_SUBJECT, UPDATE_SUBJECT  } from './types';
+import {
+  ERRORS,
+  VIEW_ALL_SUBJECT,
+  CREATE_SUBJECT,
+  DELETE_SUBJECT,
+  UPDATE_SUBJECT,
+} from './types';
 import axios from 'axios';
 import { dispatchAction } from '../helpers/action.helper';
 
@@ -27,19 +33,23 @@ export const createSubject = (information) => async (dispatch) => {
   }
 };
 export const deleteSubject = ({ subjectId }) => async (dispatch) => {
-    dispatchAction({ type: ERRORS, payload: null, dispatch });
-    try {
-      const { data } = await axios.delete(`/subjects/${subjectId}`);
-      
-      const { message } = data.result;
-      dispatchAction({ type: DELETE_SUBJECT, payload: { message, subjectId }, dispatch });
-    } catch (error) {
-      const { data: dataError } = error.response;
-      if (dataError) {
-        dispatchAction({ type: ERRORS, payload: dataError.error, dispatch });
-      }
+  dispatchAction({ type: ERRORS, payload: null, dispatch });
+  try {
+    const { data } = await axios.delete(`/subjects/${subjectId}`);
+
+    const { message } = data.result;
+    dispatchAction({
+      type: DELETE_SUBJECT,
+      payload: { message, subjectId },
+      dispatch,
+    });
+  } catch (error) {
+    const { data: dataError } = error.response;
+    if (dataError) {
+      dispatchAction({ type: ERRORS, payload: dataError.error, dispatch });
     }
-  };
+  }
+};
 
 export const updateSubject = ({ name, subjectId, type }) => async (dispatch) => {
   dispatchAction({ type: ERRORS, payload: null, dispatch });

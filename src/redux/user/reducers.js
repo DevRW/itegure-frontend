@@ -1,4 +1,4 @@
-import { LOGIN, ERRORS, PROFILE } from './types';
+import { LOGIN, ERRORS, PROFILE, VIEW_PARENTS } from './types';
 
 const initialState = {};
 export const userReducer = (state = initialState, { type, payload }) => {
@@ -12,6 +12,8 @@ export const userReducer = (state = initialState, { type, payload }) => {
       return { ...state, errors: payload };
     case PROFILE:
       return { ...state, currentProfile: payload };
+    case VIEW_PARENTS:
+      return { ...state, parents: payload };
     default:
       return state;
   }

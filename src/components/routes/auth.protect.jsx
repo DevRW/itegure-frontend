@@ -3,14 +3,14 @@ import { IS_AUTH, IS_SUBSCRIBED } from '../../redux/subscriptions/types';
 import { getStorage } from '../../redux/helpers/action.helper';
 import { Redirect, Route } from 'react-router-dom';
 
-const PrivateRoute = ({ children, ...rest }) => {
+const Prevent = ({ children, ...rest }) => {
   const isAuth = getStorage(IS_AUTH);
-  const isSub = getStorage(IS_SUBSCRIBED);
+  const isSubscribed = getStorage(IS_SUBSCRIBED);
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        isAuth === String(true) && isSub === String(true) ? (
+        isAuth === String(false) && isSubscribed === String(false) ? (
           children
         ) : (
           <Redirect to="/" />
@@ -19,4 +19,4 @@ const PrivateRoute = ({ children, ...rest }) => {
     />
   );
 };
-export default PrivateRoute;
+export default Prevent;

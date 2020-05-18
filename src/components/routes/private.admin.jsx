@@ -5,12 +5,12 @@ import { Redirect, Route } from 'react-router-dom';
 
 const PrivateRoute = ({ children, ...rest }) => {
   const isAuth = getStorage(IS_AUTH);
-  const isSub = getStorage(IS_SUBSCRIBED);
+  const isSubscribed = getStorage(IS_SUBSCRIBED);
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        isAuth === String(true) && isSub === String(true) ? (
+        isAuth === String(true) && isSubscribed === String(false) ? (
           children
         ) : (
           <Redirect to="/" />

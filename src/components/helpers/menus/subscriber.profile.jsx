@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Nav, NavItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FaOsi } from 'react-icons/fa';
-import { BsPhone, BsFileEarmarkCheck } from 'react-icons/bs';
+import { BsPhone, BsArrowReturnRight } from 'react-icons/bs';
 import { NAME, PHONE_NUMBER } from '../../../redux/subscriptions/types';
 import { getStorage } from '../../../redux/helpers/action.helper';
 import { unSubscribe } from '../../../redux/subscriptions/actions';
@@ -45,7 +45,7 @@ const Profile = (props) => {
                 <Link className="nav-link" to="#">
                   <div className="d-flex">
                     <div className="pr-2">
-                      <BsFileEarmarkCheck />
+                      <BsArrowReturnRight />
                     </div>
                     <div> + students</div>
                   </div>
@@ -55,7 +55,7 @@ const Profile = (props) => {
                 <Link className="nav-link" to="#" onClick={closeAccount}>
                   <div className="d-flex">
                     <div className="pr-2">
-                      <BsFileEarmarkCheck />
+                      <BsArrowReturnRight />
                     </div>
                     <div>unsubscribe</div>
                   </div>

@@ -1,4 +1,10 @@
-import { ERRORS, VIEW_ALL_SUBJECT, CREATE_SUBJECT, DELETE_SUBJECT, UPDATE_SUBJECT } from './types';
+import {
+  ERRORS,
+  VIEW_ALL_SUBJECT,
+  CREATE_SUBJECT,
+  DELETE_SUBJECT,
+  UPDATE_SUBJECT,
+} from './types';
 
 const initialState = {
   message: null,
