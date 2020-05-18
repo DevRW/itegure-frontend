@@ -193,7 +193,7 @@ const TimeTable = (props) => {
             onChange={onChange}
             onSubmit={onCreate}
             buttonName={'submit'}
-            title={'new time table'}
+            title={'new timetable'}
             errors={timeTableErrors}
             onClose={onClose}
             stations={stations}
@@ -207,7 +207,7 @@ const TimeTable = (props) => {
             onChange={onChange}
             onSubmit={onUpdate}
             buttonName={'update'}
-            title={'edit time table'}
+            title={'edit timetable'}
             errors={timeTableErrors}
             onClose={onClose}
             stations={stations}
