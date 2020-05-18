@@ -5,7 +5,7 @@ import Subscribe from '../index/auths/subscribe';
 import '../../assets/css/style.scss';
 import { currentProfile } from '../../redux/subscriptions/actions';
 import { connect } from 'react-redux';
-import { Alert, Container, Row } from 'reactstrap';
+// import { Alert, Container, Row } from 'reactstrap';
 const mapState = (state) => ({
   subscriptionReducer: state.subscriptions,
 });
@@ -37,7 +37,7 @@ const Index = (props) => {
       {state.login && <Login onClose={onClose} />}
       {state.subscribe && <Subscribe onClose={onClose} />}
       <Header onOpen={onOpen} />
-      <Container>
+      {/* <Container>
         <Row>
           {errors && errors.unauthorized && (
             <Alert color="danger">{errors.unauthorized}</Alert>
@@ -46,7 +46,7 @@ const Index = (props) => {
             <Alert color="danger">{errors.serverError}</Alert>
           )}
         </Row>
-      </Container>
+      </Container> */}
 
       {props.children}
     </div>
