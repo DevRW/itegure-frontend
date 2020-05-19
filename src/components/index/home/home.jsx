@@ -19,13 +19,12 @@ const Home = () => {
             <Col md="6">
               <div className="mt-5 intro">
                 <div className="w-div">
-                  <div className="font-weight-bold welcome-title">Welcome</div>
-                  <div className="font-weight-bold sub-title">to itegure</div>
+                  <div className="font-weight-bold welcome-title">ITEGURE</div>
+                  <div className="font-weight-bold sub-title">Learning Reminder</div>
                 </div>
                 <div className="mt-5 l-about">
-                  We are here to help you to get information on time about the
-                  schedule of the courses that your children will be learning on
-                  Radio and TV.
+                  Welcome to  Itegure platform, 
+                  We are here to help you to get information on time about the schedule of the courses that your children will be learning on Radio and TV.
                 </div>
                 <div className="mt-5 l-about">
                   <div className="mt-4">
@@ -34,13 +33,13 @@ const Home = () => {
                       <i>
                         <BsTablet />
                       </i>{' '}
-                      &nbsp;0788767670
+                      &nbsp;0782 798 310
                     </div>
                     <div className="home-icon">
                       <i>
                         <BsBriefcase />
                       </i>{' '}
-                      &nbsp;info@reminder.com
+                      &nbsp;info@itegure.rw
                     </div>
                   </div>
                   <div className="mt-4">

@@ -23,7 +23,7 @@ const Read = (props) => {
             )}
             {readAll && readAll.length <= 0 && (
               <Row>
-                <NotFoundMessage message="stations not available" />
+                <NotFoundMessage message="timetable not available" />
               </Row>
             )}
           </div>
