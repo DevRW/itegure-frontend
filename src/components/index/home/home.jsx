@@ -19,8 +19,9 @@ const Home = () => {
             <Col md="6">
               <div className="intro">
                 <div className="w-div">
-                  <div className="font-weight-bold welcome-title">Itegure</div>
-                  <div className="font-weight-bold sub-title">Learning Reminder</div>
+                  <div className="font-weight-bold welcome-title">Welcome</div>
+                  <div className="font-weight-bold sub-title">to Itegure</div>
+                  <small className="font-weight-bold">Learning reminder</small>
                 </div>
                 <div className="phone-img">
                   <img src={cellPhone} alt={cellPhone} />
