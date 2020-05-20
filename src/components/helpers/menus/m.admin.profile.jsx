@@ -51,7 +51,7 @@ const MAdminMenu = (props) => {
                   <Link to="/itegure-parents">&nbsp;parents</Link>
                 </NavItem>
                 <NavItem>
-                  <Link to="/itegure-timetable">&nbsp;timetables</Link>
+                  <Link to="/itegure-timetables">&nbsp;timetables</Link>
                 </NavItem>
                 <NavItem>
                   <Link to="/itegure-stations">&nbsp;stations</Link>
