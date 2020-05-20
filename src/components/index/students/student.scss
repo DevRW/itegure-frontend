@@ -85,3 +85,12 @@
     margin-top: 22px;
     text-transform: lowercase;
 }
+@media screen and (max-width: 768px){
+    .student{
+        .student-form{
+            input, select{
+             height: 60px !important;
+            }
+        }
+    }
+}

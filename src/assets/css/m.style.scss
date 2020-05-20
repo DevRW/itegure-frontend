@@ -111,10 +111,13 @@
     }
     .student{
         background: $mobOverlayColor !important;
+        .m-intros{
+            margin-bottom: 0.9rem !important;
+        }
         .student-form{
             width: 95% !important;
             margin: auto !important;
-            margin-top: 30px !important;
+            margin-top: 10px !important;
             padding: 35px !important;
         }
     }
