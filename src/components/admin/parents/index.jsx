@@ -5,6 +5,8 @@ import { viewAllParents } from '../../../redux/user/actions';
 import Intro from '../../helpers/reusable/section.intro';
 import { Container, Row } from 'reactstrap';
 import ReadAll from './read.all';
+import ViewSpecificParent from './view.specific.parent';
+
 const mapState = (state) => ({
   userReducer: state.users,
 });
@@ -32,6 +34,7 @@ const Parents = (props) => {
   };
   return (
     <Layout>
+      <ViewSpecificParent/>
       <div className="sub-dashboard">
         <Intro bold={'Parents'} value={''} />
         <Container>
