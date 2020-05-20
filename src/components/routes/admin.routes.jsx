@@ -7,6 +7,8 @@ import ViewAllClassStudy from '../admin/classes/view.class';
 import ViewTimeTable from '../admin/timetables/parent';
 import ViewAllSubject from '../admin/subjects/view.all';
 import Private from './private.admin';
+import Parents from '../admin/parents';
+
 const AdminRouteComponent = () => {
   return (
     <Switch>
@@ -25,6 +27,9 @@ const AdminRouteComponent = () => {
       </Private>
       <Private path="/itegure-subjects">
         <ViewAllSubject />
+      </Private>
+      <Private path="/itegure-parents">
+        <Parents />
       </Private>
     </Switch>
   );
