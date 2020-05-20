@@ -83,7 +83,7 @@ const Dashboard = (props) => {
               We currently have <FaLevelDownAlt />
             </div>
             <Row>
-              <Col md="3">
+              <Col md="3" xs="6">
                 <div className="b-box">
                   <Link to="#">
                     <div>parents</div>
@@ -96,7 +96,7 @@ const Dashboard = (props) => {
                   </Link>
                 </div>
               </Col>
-              <Col md="3">
+              <Col md="3" xs="6">
                 <div className="b-box">
                   <Link to="/itegure-subjects">
                     <div>subjects</div>
@@ -109,7 +109,7 @@ const Dashboard = (props) => {
                   </Link>
                 </div>
               </Col>
-              <Col md="3">
+              <Col md="3" xs="6">
                 <div className="b-box">
                   <Link to="/itegure-classes">
                     <div>classes</div>
@@ -122,7 +122,7 @@ const Dashboard = (props) => {
                   </Link>
                 </div>
               </Col>
-              <Col md="3">
+              <Col md="3" xs="6">
                 <div className="b-box">
                   <Link to="/itegure-stations">
                     <div>stations</div>

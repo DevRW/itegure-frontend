@@ -13,6 +13,11 @@
                 margin-top: 17px !important;
             }
         }
+        .titles{
+            margin-left: 25px !important;
+            font-size: 15px !important;
+            margin-top: 10px !important;
+        }
         .menu-cnt{
             display: none;
         }
@@ -49,6 +54,11 @@
                 }
                 li{
                     margin-top: 10px;
+                }
+            }
+            .ad-list-mob{
+                a{
+                    font-size: 12px !important;
                 }
             }
         }
@@ -115,6 +125,15 @@
             margin-left: 25px;
             position: relative !important;
             z-index: 0 !important;
+        }
+        .m--75{
+         width: 100% !important;
+        }
+        .section-header{
+            margin-left: 20px !important;
+        }
+        .latest-performance{
+            width: 100% !important;
         }
     }
 }

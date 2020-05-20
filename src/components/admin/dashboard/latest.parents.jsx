@@ -6,11 +6,6 @@ import { Link } from 'react-router-dom';
 import { NotFoundMessage, LoadingWait } from '../../helpers/reusable/loading';
 const LatestParent = (props) => {
   const { parents, state } = props;
-  let data;
-  if (parents && parents.length >= 6) {
-    const slice = parents.slice(0, 6);
-    data = slice;
-  }
   return (
     <div className="mt-5 sections">
       <Container>
@@ -27,7 +22,7 @@ const LatestParent = (props) => {
                   <LoadingWait />
                 </Row>
               )}
-              {data && data.length <= 0 && (
+              {parents && parents.length <= 0 && (
                 <Row>
                   <NotFoundMessage message="parents not available" />
                 </Row>
@@ -35,9 +30,9 @@ const LatestParent = (props) => {
             </div>
           </Row>
           <Row>
-            {data &&
-              data.length > 0 &&
-              data.map((item) => (
+            {parents &&
+              parents.length > 0 &&
+              parents.slice(0, 6).map((item) => (
                 <Col md="4" key={item.subscriptionId} className="mt-3">
                   <div className="st-div d-flex align-items-center">
                     <div className="ls">

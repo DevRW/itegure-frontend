@@ -11,6 +11,7 @@ import { getStorage, removeItem } from '../../../redux/helpers/action.helper';
 import AdminProfile from './admin.profile';
 import SubscriberProfile from './subscriber.profile';
 import MobSubscriber from './m.subscriber.profile';
+import MobAdmin from './m.admin.profile';
 const ParentProfile = () => {
   const [state, setState] = useState({ openMore: false });
   const logout = () => {
@@ -24,7 +25,7 @@ const ParentProfile = () => {
   };
   return (
     <Fragment>
-      <MobSubscriber />
+      {getStorage(IS_SUBSCRIBED) === String(true) ? <MobSubscriber /> : <MobAdmin />}
       <div className="menu-cnt">
         <Nav pills>
           <NavItem>
