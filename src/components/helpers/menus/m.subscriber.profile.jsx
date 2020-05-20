@@ -1,18 +1,19 @@
 import React, { Fragment, useState } from 'react';
-import { Nav, NavItem, Button } from 'reactstrap';
+import { Nav, NavItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { IS_AUTH, IS_SUBSCRIBED } from '../../../redux/subscriptions/types';
+import { IS_AUTH, PHONE_NUMBER, NAME } from '../../../redux/subscriptions/types';
 import { getStorage, logout } from '../../../redux/helpers/action.helper';
 import { FaSignInAlt, FaPowerOff, FaShower, FaRedoAlt } from 'react-icons/fa';
 import { GrTextAlignRight } from 'react-icons/gr';
 import Animista, { AnimistaTypes } from 'react-animista';
-import { unSubscribe } from '../../../redux/subscriptions/actions';
-import { connect } from 'react-redux';
 import Unsubscribe from '../../index/unsubscribe/unsbuscribe';
-
+import { FaOsi } from 'react-icons/fa';
+import { BsPhone } from 'react-icons/bs';
 const MSubscriberMenu = (props) => {
   const [state, setState] = useState({ openMenu: false, unsubscribe: false });
   const { onOpen } = props;
+  const name = getStorage(NAME);
+  const phoneNumber = getStorage(PHONE_NUMBER);
   const onHandleMenu = () => {
     setState({ ...state, openMenu: !state.openMenu });
   };
@@ -31,6 +32,25 @@ const MSubscriberMenu = (props) => {
             <Nav vertical>
               {getStorage(IS_AUTH) === String(true) ? (
                 <Fragment>
+                  <NavItem>
+                    <div className="d-flex menu-change">
+                      <div className="red-color">
+                        <FaOsi />
+                        &nbsp;
+                      </div>
+                      <div>{name && name !== '' ? name : 'no names'}</div>
+                    </div>
+                    <div className="d-flex menu-change">
+                      <div className="red-color">
+                        <BsPhone /> &nbsp;
+                      </div>
+                      <div>
+                        {phoneNumber && phoneNumber !== ''
+                          ? phoneNumber
+                          : 'no phone'}
+                      </div>
+                    </div>
+                  </NavItem>
                   <NavItem>
                     <Link to="#" onClick={onRemoveAccount}>
                       <FaRedoAlt />
