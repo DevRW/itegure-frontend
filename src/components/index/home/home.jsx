@@ -17,23 +17,28 @@ const Home = () => {
         <Container>
           <Row>
             <Col md="6">
-              <div className="mt-5 intro">
+              <div className="intro">
                 <div className="w-div">
-                  <div className="font-weight-bold welcome-title">ITEGURE</div>
-                  <div className="font-weight-bold sub-title">Learning Reminder</div>
+                  <div className="font-weight-bold welcome-title">Welcome</div>
+                  <div className="font-weight-bold sub-title">to Itegure</div>
+                  <small className="font-weight-bold">Learning reminder</small>
                 </div>
-                <div className="mt-5 l-about">
-                  Welcome to  Itegure platform, 
-                  We are here to help you to get information on time about the schedule of the courses that your children will be learning on Radio and TV.
+                <div className="phone-img">
+                  <img src={cellPhone} alt={cellPhone} />
                 </div>
-                <div className="mt-5 l-about">
+                <div className="mt-5 l-about about-app">
+                  We are here to help you to get information on time about the
+                  schedule of the courses that your children will be learning on
+                  Radio and TV.
+                </div>
+                <div className="mt-5 l-about footer">
                   <div className="mt-4">
                     Contact us{' '}
                     <div className="home-icon">
                       <i>
                         <BsTablet />
                       </i>{' '}
-                      &nbsp;0782 798 310
+                      &nbsp;+250 788 662 441
                     </div>
                     <div className="home-icon">
                       <i>

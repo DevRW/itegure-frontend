@@ -1,5 +1,4 @@
-import React from 'react';
-import { Col } from 'reactstrap';
+import React, { Fragment } from 'react';
 import './dashboard.scss';
 import { BsChatSquareDots } from 'react-icons/bs';
 import { LoadingWait, NotFoundMessage } from '../../helpers/reusable/loading';
@@ -7,7 +6,7 @@ import { LoadingWait, NotFoundMessage } from '../../helpers/reusable/loading';
 const Message = (props) => {
   const { notifications, state } = props;
   return (
-    <Col md="4" className="mt-3">
+    <Fragment>
       <div className="message-div">
         <div className="msg-title">
           <div className="red-color inbox-icon">
@@ -41,7 +40,7 @@ const Message = (props) => {
           </div>
         )}
       </div>
-    </Col>
+    </Fragment>
   );
 };
 export default Message;

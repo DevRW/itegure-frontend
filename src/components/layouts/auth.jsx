@@ -16,7 +16,7 @@ export const AuthLayout = (props) => {
               <img src={logo} alt={logo} />
             </div>
             <div className="get-started">Get Started</div>
-            <div className="font-weight-bold siz-13">{subtitle}</div>
+            <div className="font-weight-bold siz-13 mob-center">{subtitle}</div>
           </div>
           {props.children}
         </div>

@@ -7,6 +7,7 @@ import { readAllStudent } from '../../../redux/students/actions';
 import { connect } from 'react-redux';
 import { viewNotifications } from '../../../redux/subscriptions/actions';
 import Message from './message';
+import DashboardMob from './mob.menu';
 const mapState = (state) => ({
   studentReducer: state.students,
   subscriptionReducer: state.subscriptions,
@@ -15,7 +16,11 @@ const connector = connect(mapState, { readAllStudent, viewNotifications });
 const Dashboard = (props) => {
   const { readAll, errors: studentErrors } = props.studentReducer;
   const { notifications } = props.subscriptionReducer;
-  const [state, setState] = useState({ loading: false });
+  const [state, setState] = useState({
+    loading: false,
+    mobStudent: true,
+    mobInbox: false,
+  });
   useEffect(() => {
     const fetch = () => {
       setState({ ...state, loading: true });
@@ -33,6 +38,9 @@ const Dashboard = (props) => {
     }
     // eslint-disable-next-line
   }, [props.subscriptionReducer, props.studentReducer]);
+  const onSwitchMob = ({ student, inbox }) => {
+    setState({ ...state, mobStudent: student, mobInbox: inbox });
+  };
   return (
     <Layout>
       <div className="sub-dashboard">
@@ -54,6 +62,7 @@ const Dashboard = (props) => {
             </Col>
           </Row>
         </Container>
+        <DashboardMob onSwitch={onSwitchMob} state={state} />
         <Container>
           <Row>
             {studentErrors && studentErrors.serverError && (
@@ -62,8 +71,22 @@ const Dashboard = (props) => {
             {studentErrors && studentErrors.notFoundError && (
               <Alert color="danger">{studentErrors.notFoundError}</Alert>
             )}
-            <Message notifications={notifications} state={state} />
-            <ViewStudent />
+            {state.mobInbox && (
+              <Col md="4" className="mob-div" xs="12">
+                <Message notifications={notifications} state={state} />
+              </Col>
+            )}
+            <Col md="4" className="mt-3 desk-div" xs="12">
+              <Message notifications={notifications} state={state} />
+            </Col>
+            <Col md="8" className="mt-3 desk-div" xs="12">
+              <ViewStudent />
+            </Col>
+            {state.mobStudent && (
+              <Col md="8" className="mob-div" xs="12">
+                <ViewStudent />
+              </Col>
+            )}
           </Row>
         </Container>
       </div>

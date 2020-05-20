@@ -12,18 +12,18 @@
     .w-div{
         margin-top: 100px;
     }
+    .phone-img{
+        display: none;
+    }
     .welcome-title{
         font-size: 50px;
-        text-transform: uppercase;
+        text-transform: capitalize;
         background: -webkit-linear-gradient(#232020, #000000);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-weight: bold;
     }
     .sub-title{
-        // background: -webkit-linear-gradient(262deg, #ff7854, #fd267d); 
-        // -webkit-text-fill-color: transparent; 
-        // -webkit-background-clip: text;
         color: $blueColor;
     }
     .l-about{
@@ -46,4 +46,35 @@
             }
     }
 }
+}
+@media screen and (max-width: 768px){
+    .home-section{
+        position: relative;
+        .w-div{
+            margin-top: 45px;
+            text-align: center;
+        }
+        .phone-img{
+            width: 100%;
+            display: block;
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 60%;
+            }
+        }
+        .l-about{
+          width: 100%;
+          font-size: 14px;
+          margin-top: 2rem !important;
+        }
+        .about-app{
+            text-align: center;
+        }
+        .footer{
+            padding-left: 5%;
+        }
+    }
 }

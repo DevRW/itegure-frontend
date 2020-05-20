@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Nav, NavItem, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { BsPower } from 'react-icons/bs';
@@ -10,6 +10,7 @@ import {
 import { getStorage, removeItem } from '../../../redux/helpers/action.helper';
 import AdminProfile from './admin.profile';
 import SubscriberProfile from './subscriber.profile';
+import MobSubscriber from './m.subscriber.profile';
 const ParentProfile = () => {
   const [state, setState] = useState({ openMore: false });
   const logout = () => {
@@ -22,27 +23,30 @@ const ParentProfile = () => {
     setState({ ...state, openMore: !state.openMore });
   };
   return (
-    <div className="menu-cnt">
-      <Nav pills>
-        <NavItem>
-          <Link className="btn btn-xs btn-border btn-circle" to="#">
-            <Button type="button" className="auth-link-btn">
-              <div className="d-flex logout-btn" onClick={logout}>
-                <div className="log-icon">
-                  <BsPower />
+    <Fragment>
+      <MobSubscriber />
+      <div className="menu-cnt">
+        <Nav pills>
+          <NavItem>
+            <Link className="btn btn-xs btn-border btn-circle" to="#">
+              <Button type="button" className="auth-link-btn">
+                <div className="d-flex logout-btn" onClick={logout}>
+                  <div className="log-icon">
+                    <BsPower />
+                  </div>
+                  <div>logout</div>
                 </div>
-                <div>logout</div>
-              </div>
-            </Button>
-          </Link>
-        </NavItem>
-        {getStorage(IS_SUBSCRIBED) === String(true) ? (
-          <SubscriberProfile />
-        ) : (
-          <AdminProfile more={openMenu} state={state} />
-        )}
-      </Nav>
-    </div>
+              </Button>
+            </Link>
+          </NavItem>
+          {getStorage(IS_SUBSCRIBED) === String(true) ? (
+            <SubscriberProfile />
+          ) : (
+            <AdminProfile more={openMenu} state={state} />
+          )}
+        </Nav>
+      </div>
+    </Fragment>
   );
 };
 export default ParentProfile;
