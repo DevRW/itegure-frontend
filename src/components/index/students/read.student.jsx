@@ -80,7 +80,7 @@ const ReadStudent = (props) => {
       {state.edit && (
         <EditStudent isOpen={state.edit} onOpen={onEdit} student={state.student} />
       )}
-      <Col md="8" className="mt-3">
+      <Col md="12" className="mt-3" xs="12">
         <div className="mt-3 mb-3">
           <Button type="button" className="p-2" onClick={onOpen}>
             + student
@@ -107,7 +107,7 @@ const ReadStudent = (props) => {
             readAll.length !== 0 &&
             readAll.map((item, i) => (
               <Col md="6" key={i}>
-                <div className="st-div d-flex align-items-center">
+                <div className="st-div d-flex align-items-center mt-3">
                   <div className="ls">
                     <div className="d-flex align-items-center">
                       <div>

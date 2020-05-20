@@ -50,6 +50,7 @@
             position: relative;
             .inbox-icon{
                 font-size: 30px;
+                color: $blueColor;
             }
             .title-name{
                 position: absolute;
@@ -86,9 +87,35 @@
         background-color: $redColor;
         border: none !important;
     }
+
+    .mob-div{
+        display: none;
+    }
+    .desk-div{
+        display: block;
+    }
     @media screen and (min-width : 1824px){
         .message-div{
             width: 18%;
         }
     }  
+}
+@media screen and (max-width: 768px){
+    .sub-dashboard{
+        .mob-div{
+            display: block;
+        }
+        .desk-div{
+            display: none;
+        }
+        .message-div{
+            width: 100%;
+            position: relative;
+            margin: auto;
+            height: auto;
+            margin-bottom: 30px;
+            overflow: none !important;
+            box-shadow: none;
+        }
+    }
 }

@@ -16,12 +16,12 @@ const MSubscriberMenu = (props) => {
   const onHandleMenu = () => {
     setState({ ...state, openMenu: !state.openMenu });
   };
-  const onRemoveAccount = ()=>{
-      setState({...state, unsubscribe: !state.unsubscribe});
+  const onRemoveAccount = () => {
+    setState({ ...state, unsubscribe: !state.unsubscribe });
   };
   return (
     <div className="m-auth-menu">
-        {state.unsubscribe && <Unsubscribe close={onRemoveAccount}/>}
+      {state.unsubscribe && <Unsubscribe close={onRemoveAccount} />}
       <div className="m-menu-icon" onClick={onHandleMenu}>
         <GrTextAlignRight />
       </div>
@@ -33,7 +33,7 @@ const MSubscriberMenu = (props) => {
                 <Fragment>
                   <NavItem>
                     <Link to="#" onClick={onRemoveAccount}>
-                      <FaRedoAlt/>
+                      <FaRedoAlt />
                       &nbsp;unsubscribe
                     </Link>
                   </NavItem>
