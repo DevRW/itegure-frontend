@@ -22,9 +22,13 @@ const Home = () => {
                   <div className="font-weight-bold welcome-title">Itegure</div>
                   <div className="font-weight-bold sub-title">Learning Reminder</div>
                 </div>
-                <div className="mt-5 l-about">
-                  Welcome to  Itegure platform, 
-                  We are here to help you to get information on time about the schedule of the courses that your children will be learning on Radio and TV.
+                <div className="phone-img">
+                  <img src={cellPhone} alt={cellPhone} />
+                </div>
+                <div className="mt-5 l-about about-app">
+                  We are here to help you to get information on time about the
+                  schedule of the courses that your children will be learning on
+                  Radio and TV.
                 </div>
                 <div className="mt-5 l-about footer">
                   <div className="mt-4">

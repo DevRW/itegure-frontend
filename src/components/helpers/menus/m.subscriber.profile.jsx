@@ -1,19 +1,27 @@
 import React, { Fragment, useState } from 'react';
-import { Nav, NavItem } from 'reactstrap';
+import { Nav, NavItem, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { IS_AUTH, IS_SUBSCRIBED } from '../../../redux/subscriptions/types';
 import { getStorage, logout } from '../../../redux/helpers/action.helper';
-import { FaSignInAlt, FaShower, FaPowerOff } from 'react-icons/fa';
+import { FaSignInAlt, FaPowerOff, FaShower, FaRedoAlt } from 'react-icons/fa';
 import { GrTextAlignRight } from 'react-icons/gr';
 import Animista, { AnimistaTypes } from 'react-animista';
-const MAuthMenu = (props) => {
-  const [state, setState] = useState({ openMenu: false });
+import { unSubscribe } from '../../../redux/subscriptions/actions';
+import { connect } from 'react-redux';
+import Unsubscribe from '../../index/unsubscribe/unsbuscribe';
+
+const MSubscriberMenu = (props) => {
+  const [state, setState] = useState({ openMenu: false, unsubscribe: false });
   const { onOpen } = props;
   const onHandleMenu = () => {
     setState({ ...state, openMenu: !state.openMenu });
   };
+  const onRemoveAccount = ()=>{
+      setState({...state, unsubscribe: !state.unsubscribe});
+  };
   return (
     <div className="m-auth-menu">
+        {state.unsubscribe && <Unsubscribe close={onRemoveAccount}/>}
       <div className="m-menu-icon" onClick={onHandleMenu}>
         <GrTextAlignRight />
       </div>
@@ -24,15 +32,9 @@ const MAuthMenu = (props) => {
               {getStorage(IS_AUTH) === String(true) ? (
                 <Fragment>
                   <NavItem>
-                    <Link
-                      to={
-                        getStorage(IS_SUBSCRIBED) === String(true)
-                          ? '/home'
-                          : '/itegure-dashboard'
-                      }
-                    >
-                      <FaSignInAlt />
-                      &nbsp; my account
+                    <Link to="#" onClick={onRemoveAccount}>
+                      <FaRedoAlt/>
+                      &nbsp;unsubscribe
                     </Link>
                   </NavItem>
                   <NavItem>
@@ -66,4 +68,4 @@ const MAuthMenu = (props) => {
     </div>
   );
 };
-export default MAuthMenu;
+export default MSubscriberMenu;
