@@ -1,10 +1,11 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
-import { BsFilterLeft, BsPhone, BsPeopleFill, BsReplyAll } from 'react-icons/bs';
+import { Container, Row, Col, Button } from 'reactstrap';
+import { BsFilterLeft, BsPhone, BsPeopleFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import { NotFoundMessage, LoadingWait } from '../../helpers/reusable/loading';
+import { NotFoundMessage, LoadingWait, Spinner } from '../../helpers/reusable/loading';
+import { FaExternalLinkSquareAlt } from 'react-icons/fa';
 const ReadAll = (props) => {
-  const { parents, state } = props;
+  const { parents, state, viewSpecific } = props;
   return (
     <div className="mt-5 sections">
       <Container>
@@ -61,6 +62,22 @@ const ReadAll = (props) => {
                           </small>
                         </div>
                       </div>
+                    </div>
+                    <div className="action ml-2">
+                    <div className="action-div">
+                      <Button
+                        type="button"
+                        className="ed"
+                        onClick={() => viewSpecific(item)}
+                        disabled={state.subscriptionId === item.subscriptionId && state.spinner}
+                      >
+                        {state.spinner && state.subscriptionId === item.subscriptionId ? (
+                          <Spinner color="text-light" />
+                        ) : (
+                          <FaExternalLinkSquareAlt/>
+                        )}
+                      </Button>
+                    </div>
                     </div>
                   </div>
                 </Col>
