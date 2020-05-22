@@ -9,4 +9,40 @@
     z-index: 100;
     background: $whiteColor;
     display: none;
+    .v-parent{
+        box-shadow: 0px 2px 60px 0px $ddd;
+        position: relative;
+        border-bottom-left-radius: 40%;
+        border-bottom-right-radius: 40%;
+        height: 90vh;
+    }
+    .v-parent-header{
+        .p-title{
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: 3rem;
+            position: relative;
+            .p-title-icon{
+                font-size: 30px;
+                margin-top: -1rem;
+                top: 0;
+            }
+        }
+    }
+    .view-parent-student{
+        width: 55%;
+        margin: auto;
+        margin-top: 5rem;
+        .ls{
+            box-shadow: 0px 5px 10px 0px #0000001c;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            margin-top: 2rem;
+        }
+    }
 }

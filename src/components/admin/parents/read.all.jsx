@@ -2,7 +2,11 @@ import React from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
 import { BsFilterLeft, BsPhone, BsPeopleFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import { NotFoundMessage, LoadingWait, Spinner } from '../../helpers/reusable/loading';
+import {
+  NotFoundMessage,
+  LoadingWait,
+  Spinner,
+} from '../../helpers/reusable/loading';
 import { FaExternalLinkSquareAlt } from 'react-icons/fa';
 const ReadAll = (props) => {
   const { parents, state, viewSpecific } = props;
@@ -11,7 +15,7 @@ const ReadAll = (props) => {
       <Container>
         <div className="m--75 mt-4">
           <Row>
-            <div className="pl-3">
+            <div className="pl-4">
               {state.loading && (
                 <Row>
                   <LoadingWait />
@@ -64,20 +68,24 @@ const ReadAll = (props) => {
                       </div>
                     </div>
                     <div className="action ml-2">
-                    <div className="action-div">
-                      <Button
-                        type="button"
-                        className="ed"
-                        onClick={() => viewSpecific(item)}
-                        disabled={state.subscriptionId === item.subscriptionId && state.spinner}
-                      >
-                        {state.spinner && state.subscriptionId === item.subscriptionId ? (
-                          <Spinner color="text-light" />
-                        ) : (
-                          <FaExternalLinkSquareAlt/>
-                        )}
-                      </Button>
-                    </div>
+                      <div className="action-div">
+                        <Button
+                          type="button"
+                          className="ed"
+                          onClick={() => viewSpecific(item)}
+                          disabled={
+                            state.subscriptionId === item.subscriptionId &&
+                            state.spinner
+                          }
+                        >
+                          {state.spinner &&
+                          state.subscriptionId === item.subscriptionId ? (
+                            <Spinner color="text-light" />
+                          ) : (
+                            <FaExternalLinkSquareAlt />
+                          )}
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </Col>

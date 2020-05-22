@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
-import { BsFilterLeft, BsTrash2, BsBrush } from 'react-icons/bs';
+import { BsTrash2, BsBrush } from 'react-icons/bs';
+import { FaStoreAlt } from 'react-icons/fa';
 import {
   Spinner,
   LoadingWait,
@@ -32,7 +33,7 @@ const ReadAll = (props) => {
                   <div className="ls">
                     <div className="d-flex align-items-center">
                       <div>
-                        <BsFilterLeft />
+                        <FaStoreAlt />
                       </div>
                       <div className="pl-2">{item.name}</div>
                     </div>

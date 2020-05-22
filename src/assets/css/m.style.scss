@@ -14,8 +14,8 @@
             }
         }
         .titles{
-            margin-left: 25px !important;
-            font-size: 15px !important;
+            margin-left: 0px !important;
+            font-size: 12px !important;
             margin-top: 10px !important;
         }
         .menu-cnt{
@@ -125,7 +125,7 @@
         margin-bottom: 50px;
         .dash-intro{
             margin-top: 5rem !important;
-            margin-left: 25px;
+            margin-left: 0px;
             position: relative !important;
             z-index: 0 !important;
         }
@@ -142,6 +142,12 @@
     .auth-ad{
         .forms-ad{
             width: 85% !important;
+        }
+    }
+    .view-in-table{
+        .t-name{
+            position: relative !important;
+            margin-left: 0px !important;
         }
     }
 }
