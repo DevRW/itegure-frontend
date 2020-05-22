@@ -11,7 +11,6 @@ import Animista, { AnimistaTypes } from 'react-animista';
 import { BsFillEnvelopeFill } from 'react-icons/bs';
 const MAdminMenu = (props) => {
   const [state, setState] = useState({ openMenu: false });
-  const { onOpen } = props;
   const onHandleMenu = () => {
     setState({ ...state, openMenu: !state.openMenu });
   };
