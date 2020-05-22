@@ -17,6 +17,7 @@ const Parents = (props) => {
     spinner: false,
     item: null,
     subscriptionId: '',
+    onOpen: false,
   });
   const { parents, errors } = props.userReducer;
   useEffect(() => {
@@ -33,13 +34,22 @@ const Parents = (props) => {
     fetch();
     // eslint-disable-next-line
   }, []);
+  useEffect(() => {
+    if (state.item) {
+      setState({ ...state, spinner: false });
+    }
+    // eslint-disable-next-line
+  }, [state.item]);
   const viewSpecificParent = (item) => {
     const { subscriptionId } = item;
-    setState({ ...state, item, subscriptionId, spinner: true });
+    setState({ ...state, item, subscriptionId, spinner: true, onOpen: true });
+  };
+  const close = () => {
+    setState({ ...state, onOpen: false, item: null, spinner: false });
   };
   return (
     <Layout>
-      <ViewSpecificParent />
+      {state.onOpen && <ViewSpecificParent onClose={close} parent={state.item} />}
       <div className="sub-dashboard">
         <Intro bold={'Parents'} value={''} />
         <Container>
