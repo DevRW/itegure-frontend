@@ -1,13 +1,11 @@
 import React, { useState, Fragment, useEffect } from 'react';
 import { Col, Row, Button } from 'reactstrap';
 import {
-  BsFilterLeft,
-  BsGrid1X2,
-  BsListTask,
   BsTrash2,
   BsBrush,
   BsCheckCircle,
 } from 'react-icons/bs';
+import {FaUserTie, FaStoreAlt} from 'react-icons/fa';
 import CreateStudent from './create.student';
 import { connect } from 'react-redux';
 import { readAllStudent, deleteStudent } from '../../../redux/students/actions';
@@ -109,25 +107,15 @@ const ReadStudent = (props) => {
               <Col md="6" key={i}>
                 <div className="st-div d-flex align-items-center mt-3">
                   <div className="ls">
-                    {/* <div className="d-flex align-items-center">
+                    <div className="d-flex align-items-center">
                       <div>
-                        <BsFilterLeft />
+                        <FaUserTie />
                       </div>
-                      <div className="pl-2">{item.name}</div>
+                      <div className="pl-2">student</div>
                     </div>
                     <div className="d-flex align-items-center">
                       <div>
-                        <BsListTask />
-                      </div>
-                      <div className="pl-2">
-                        <small>
-                          {item.school ? item.school : 'school not available'}
-                        </small>
-                      </div>
-                    </div> */}
-                    <div className="d-flex align-items-center">
-                      <div>
-                        <BsGrid1X2 />
+                        <FaStoreAlt />
                       </div>
                       <div className="pl-2">
                         <small>

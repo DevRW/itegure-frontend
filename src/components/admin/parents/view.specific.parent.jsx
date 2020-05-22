@@ -3,7 +3,7 @@ import { Row, Col, Button } from 'reactstrap';
 import './parents.scss';
 import '../../index/students/student.scss';
 import { BsPhone, BsPeopleFill } from 'react-icons/bs';
-import { FaLongArrowAltRight, FaStoreAlt } from 'react-icons/fa';
+import { FaStoreAlt, FaUserTie } from 'react-icons/fa';
 import { NotFoundMessage } from '../../helpers/reusable/loading';
 const ViewSpecificParent = (props) => {
   const { onClose, parent } = props;
@@ -41,7 +41,7 @@ const ViewSpecificParent = (props) => {
                   <div className="ls">
                     <div className="d-flex align-items-center">
                       <div>
-                        <FaLongArrowAltRight />
+                        <FaUserTie/>
                       </div>
                       <div className="pl-2">student</div>
                     </div>
