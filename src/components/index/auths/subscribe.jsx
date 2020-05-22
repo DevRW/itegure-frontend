@@ -14,7 +14,7 @@ const connector = connect(mapState, { subscribe });
 const Subscribe = (props) => {
   const { onClose } = props;
   const { errors, message } = props.subscriptionReducer;
-  const [state, setState] = useState({ spinner: false, name: '', phoneNumber: '' });
+  const [state, setState] = useState({ spinner: false, name: 'Parent', phoneNumber: '' });
   const onChange = (e) => {
     const { name, value } = e.target;
     setState({ ...state, [name]: value });
@@ -43,7 +43,7 @@ const Subscribe = (props) => {
         <Form className="auth-form" autoComplete="off" onSubmit={onSubmit}>
           <FormGroup>
             <Input
-              type="text"
+              type="hidden"
               name="name"
               placeholder="enter your name"
               value={state.name}

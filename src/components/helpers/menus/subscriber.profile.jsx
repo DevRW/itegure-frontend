@@ -47,7 +47,7 @@ const Profile = (props) => {
                     <div className="pr-2">
                       <BsArrowReturnRight />
                     </div>
-                    <div> + students</div>
+                    <div> + student class</div>
                   </div>
                 </Link>
               </NavItem>

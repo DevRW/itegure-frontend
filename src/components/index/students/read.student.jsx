@@ -83,7 +83,7 @@ const ReadStudent = (props) => {
       <Col md="12" className="mt-3" xs="12">
         <div className="mt-3 mb-3">
           <Button type="button" className="p-2" onClick={onOpen}>
-            + student
+            + student class
           </Button>
           {create && (
             <div className="font-weight-normal success-message">
@@ -109,7 +109,7 @@ const ReadStudent = (props) => {
               <Col md="6" key={i}>
                 <div className="st-div d-flex align-items-center mt-3">
                   <div className="ls">
-                    <div className="d-flex align-items-center">
+                    {/* <div className="d-flex align-items-center">
                       <div>
                         <BsFilterLeft />
                       </div>
@@ -124,7 +124,7 @@ const ReadStudent = (props) => {
                           {item.school ? item.school : 'school not available'}
                         </small>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="d-flex align-items-center">
                       <div>
                         <BsGrid1X2 />
