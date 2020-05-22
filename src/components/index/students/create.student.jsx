@@ -12,8 +12,8 @@ const CreateStudent = (props) => {
   const { classes } = props.classReducer;
   const { create, errors } = props.studentReducer;
   const [state, setState] = useState({
-    name: '',
-    school: '',
+    name: 'Name',
+    school: 'School',
     classStudy: '',
     loading: false,
     spinner: false,
@@ -58,7 +58,7 @@ const CreateStudent = (props) => {
           onClose={props.onOpen}
           isOpen={props.isOpen}
           classes={classes && classes}
-          title="Assign new student"
+          title="Assign new student class"
           errors={errors}
           message={state.message}
           buttonName="submit"

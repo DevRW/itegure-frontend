@@ -39,7 +39,7 @@ const StudentLayout = (props) => {
             <Form autoComplete="off" onSubmit={(e) => onSubmit(e)}>
               <FormGroup>
                 <Input
-                  type="text"
+                  type="hidden"
                   name="name"
                   value={state.name}
                   placeholder="student name"
@@ -51,7 +51,7 @@ const StudentLayout = (props) => {
               </FormGroup>
               <FormGroup>
                 <Input
-                  type="text"
+                  type="hidden"
                   name="school"
                   value={state.school}
                   placeholder="school name"
