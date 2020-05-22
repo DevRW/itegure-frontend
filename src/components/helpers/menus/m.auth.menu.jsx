@@ -3,7 +3,12 @@ import { Nav, NavItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { IS_AUTH, IS_SUBSCRIBED } from '../../../redux/subscriptions/types';
 import { getStorage, logout } from '../../../redux/helpers/action.helper';
-import { FaSignInAlt, FaShower, FaPowerOff, FaLocationArrow } from 'react-icons/fa';
+import {
+  FaSignInAlt,
+  FaPowerOff,
+  FaLocationArrow,
+  FaSignOutAlt,
+} from 'react-icons/fa';
 import { GrTextAlignRight } from 'react-icons/gr';
 import Animista, { AnimistaTypes } from 'react-animista';
 const MAuthMenu = (props) => {
@@ -53,7 +58,7 @@ const MAuthMenu = (props) => {
                   </NavItem>
                   <NavItem>
                     <Link to="#" onClick={() => onOpen({ log: false, sub: true })}>
-                      <FaShower />
+                      <FaSignOutAlt />
                       &nbsp;signup
                     </Link>
                   </NavItem>

@@ -1,0 +1,30 @@
+@import '../../../assets/css/color.scss';
+@media screen and (max-width: 768px){
+    .v-specific{
+        background: $whiteColor;
+        .v-parent{
+            border-bottom-left-radius: 25% !important;
+            border-bottom-right-radius: 25% !important;
+            height: 95vh !important;
+            overflow-y: auto;
+        }
+        .v-parent-header{
+            .p-title{
+                margin-top: 2rem !important;
+            }
+            .close{
+                margin-top: 1.5rem !important;
+            }
+        }
+        .view-parent-student{
+            margin-top: 1rem !important;
+            width: 85% !important;
+            .st-title{
+                margin-top: 2rem !important;
+            }
+            .ls{
+                margin-top: 1rem !important;
+            }
+        }
+    }
+}

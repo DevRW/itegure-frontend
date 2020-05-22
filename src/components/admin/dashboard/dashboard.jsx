@@ -85,7 +85,7 @@ const Dashboard = (props) => {
             <Row>
               <Col md="3" xs="6">
                 <div className="b-box">
-                  <Link to="#">
+                  <Link to="/itegure-dashboard">
                     <div>parents</div>
                     <div className="box-number">
                       {parents && parents.length > 0 ? parents.length : 'N/A'}

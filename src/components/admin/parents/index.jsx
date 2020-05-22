@@ -12,7 +12,13 @@ const mapState = (state) => ({
 });
 const connector = connect(mapState, { viewAllParents });
 const Parents = (props) => {
-  const [state, setState] = useState({ loading: false, spinner: false, item: null, subscriptionId: '' });
+  const [state, setState] = useState({
+    loading: false,
+    spinner: false,
+    item: null,
+    subscriptionId: '',
+    onOpen: false,
+  });
   const { parents, errors } = props.userReducer;
   useEffect(() => {
     if (errors || parents) {
@@ -28,13 +34,22 @@ const Parents = (props) => {
     fetch();
     // eslint-disable-next-line
   }, []);
-  const viewSpecificParent = (item)=>{
-    const {subscriptionId} = item;
-    setState({...state, item, subscriptionId, spinner: true});
+  useEffect(() => {
+    if (state.item) {
+      setState({ ...state, spinner: false });
+    }
+    // eslint-disable-next-line
+  }, [state.item]);
+  const viewSpecificParent = (item) => {
+    const { subscriptionId } = item;
+    setState({ ...state, item, subscriptionId, spinner: true, onOpen: true });
+  };
+  const close = () => {
+    setState({ ...state, onOpen: false, item: null, spinner: false });
   };
   return (
     <Layout>
-      <ViewSpecificParent/>
+      {state.onOpen && <ViewSpecificParent onClose={close} parent={state.item} />}
       <div className="sub-dashboard">
         <Intro bold={'Parents'} value={''} />
         <Container>
@@ -44,7 +59,7 @@ const Parents = (props) => {
             </div>
           </Row>
         </Container>
-        <ReadAll state={state} parents={parents} viewSpecific={viewSpecificParent}/>
+        <ReadAll state={state} parents={parents} viewSpecific={viewSpecificParent} />
       </div>
     </Layout>
   );

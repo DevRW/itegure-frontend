@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
-import { BsFilterLeft, BsPhone, BsTrash2, BsBrush } from 'react-icons/bs';
+import { BsFilterLeft, BsTrash2, BsBrush, BsMusicNoteBeamed } from 'react-icons/bs';
 import {
   Spinner,
   LoadingWait,
@@ -38,7 +38,7 @@ const ReadAll = (props) => {
                     </div>
                     <div className="d-flex align-items-center">
                       <div>
-                        <BsPhone />
+                        <BsMusicNoteBeamed />
                       </div>
                       <div className="pl-2">
                         <small>{item.type}</small>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container, Row, Table, Button } from 'reactstrap';
-import { FaArrowsAltH, FaAirbnb } from 'react-icons/fa';
+import { FaArrowsAltH } from 'react-icons/fa';
 import {
   Spinner,
   LoadingWait,
   NotFoundMessage,
 } from '../../helpers/reusable/loading';
-import { BsTrash2, BsBrush } from 'react-icons/bs';
+import { BsTrash2, BsBrush, BsArrowRightShort } from 'react-icons/bs';
 import { customHours, customMinutes } from '../../../redux/helpers/action.helper';
 
 const Read = (props) => {
@@ -65,7 +65,7 @@ const Read = (props) => {
                           <div className="d-flex flex-column holder">
                             <div className="subject d-flex">
                               <div className="t-icon">
-                                <FaAirbnb />
+                                <BsArrowRightShort />
                               </div>
                               <div className="t-name">
                                 {item.subjectKeyId
@@ -75,7 +75,7 @@ const Read = (props) => {
                             </div>
                             <div className="station d-flex">
                               <div className="t-icon">
-                                <FaAirbnb />
+                                <BsArrowRightShort />
                               </div>
                               <div className="t-name">
                                 {item.stationKeyId
@@ -85,7 +85,7 @@ const Read = (props) => {
                             </div>
                             <div className="subject d-flex">
                               <div className="t-icon">
-                                <FaAirbnb />
+                                <BsArrowRightShort />
                               </div>
                               <div className="t-name">
                                 {item.classStudyKeyId
