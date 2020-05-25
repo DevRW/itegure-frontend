@@ -27,9 +27,8 @@ const Home = () => {
                   <img src={cellPhone} alt={cellPhone} />
                 </div>
                 <div className="mt-5 l-about about-app">
-                  We are here to help you to get information on time about the
-                  schedule of the courses that your children will be learning on
-                  Radio and TV.
+                We send information of the schedule for courses that 
+                your children will be learning on Radio and TV on time in this covid-19 period.
                 </div>
                 <div className="mt-5 l-about footer">
                   <div className="mt-4">
@@ -62,7 +61,7 @@ const Home = () => {
             <Col md="6">
               <div className="ussd-div">
                 <div className="ussd-image">
-                  <img src={cellPhone} alt={cellPhone} />
+                  <img src={cellPhone} alt={cellPhone} alt={'USSD Phone with Short Code'}/>
                 </div>
               </div>
             </Col>
