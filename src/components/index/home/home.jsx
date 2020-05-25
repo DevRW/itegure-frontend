@@ -27,7 +27,7 @@ const Home = () => {
                   <img src={cellPhone} alt={cellPhone} />
                 </div>
                 <div className="mt-5 l-about about-app">
-                We send information of the schedule for courses that 
+                We send information on schedules of courses that 
                 your children will be learning on Radio and TV on time in this covid-19 period.
                 </div>
                 <div className="mt-5 l-about footer">
