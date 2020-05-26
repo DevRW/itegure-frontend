@@ -55,7 +55,7 @@ const Login = (props) => {
           <Form className="auth-form" autoComplete="off" onSubmit={onSubmit}>
             <FormGroup>
               <Input
-                type="text"
+                type="tel"
                 name="phoneNumber"
                 placeholder="enter phone number"
                 onChange={onChange}

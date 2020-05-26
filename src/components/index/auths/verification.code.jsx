@@ -44,7 +44,7 @@ const VerifyCode = (props) => {
       <Form className="auth-form" autoComplete="off" onSubmit={onSubmit}>
         <FormGroup>
           <Input
-            type="text"
+            type="tel"
             name="code"
             placeholder="enter verification code"
             onChange={onChange}
