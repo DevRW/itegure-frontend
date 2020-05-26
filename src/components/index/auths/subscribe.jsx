@@ -55,7 +55,7 @@ const Subscribe = (props) => {
           </FormGroup>
           <FormGroup>
             <Input
-              type="text"
+              type="tel"
               name="phoneNumber"
               placeholder="enter phone number"
               value={state.phoneNumber}
