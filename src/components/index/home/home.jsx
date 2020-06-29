@@ -16,7 +16,7 @@ const Home = () => {
       <div className="home-section">
         <Container>
           <Row>
-            <Col md="6">
+            <Col md="7">
               <div className="intro">
                 <div className="w-div">
                   <div className="font-weight-bold welcome-title">Welcome</div>
@@ -58,7 +58,7 @@ const Home = () => {
                 </div>
               </div>
             </Col>
-            <Col md="6">
+            <Col md="5">
               <div className="ussd-div">
                 <div className="ussd-image">
                   <img src={cellPhone} alt={cellPhone} alt={'USSD Phone with Short Code'}/>
