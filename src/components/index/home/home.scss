@@ -42,7 +42,8 @@
         .ussd-image{
             width: 500px;
             img{
-                width: 100%;
+                width: 50%;
+                transform: rotate(15deg);
             }
     }
 }
