@@ -1,68 +1,80 @@
-# learning-reminder-frontend
+# ITEGURE
 
-## Available Scripts
+WatchTower is a tool used to automate performance tracking and management within the D0B space.
 
-In the project directory, you can run:
+This repo holds the code for the frontend of WatchTower
 
-### `yarn start`
+## Description
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The D0 program is an integral part of the fellowship where fellows are constantly monitored by different stakeholders.
+Watchtower automates the process of monitoring and notifying the different stakeholders within the D0 space of a fellow's progress. Fellows can also access their ratings using this platform.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Table of contents
 
-### `yarn test`
+- [Dependencies](#dependencies)
+- [Installing a dependency](#installing-a-dependency)
+- [Setup](#setup)
+- [To install requirements run](#to-install-requirements-run)
+- [Starting local development server](#starting-local-development-server)
+- [Development Guidelines](#development-contributing-guidelines)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## Dependencies
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Node](https://nodejs.org/en/download/) - A Javascript runtime environment.
+- [React](https://github.com/facebook/create-react-app) - A Javascript library for building user interfaces.
+- Enzyme
+- Redux
+- A package manager - [yarn](https://yarnpkg.com/lang/en/) or [NPM](https://www.npmjs.com/)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Installing a Dependency
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You may install a dependency by running:
 
-### `yarn eject`
+```
+yarn add <dependency>
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Setup
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+After installing the prerequisites, clone the repository:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+$ git clone https://github.com/andela/watch-tower.git
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Then change the directory to the repository:
 
-## Learn More
+```
+$ cd watch-tower
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### To install requirements run:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+yarn install
+```
 
-### Code Splitting
+This will install all the requirements defined in the `package.json` file inside the watch-tower folder.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+### Development Contributing Guidelines
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- The branch naming, commit message and pull request conventions are documented [here](https://github.com/andela/engineering-playbook/tree/master/5.%20Developing/Conventions)
+- [Airbnb style guide for react](https://github.com/airbnb/javascript/tree/master/react)
+- [Airbnb style guide for ES6/ES7](https://github.com/airbnb/javascript)`
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
+## Development Guidelines
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+After installing the prerequisites, clone the repository
 
-### Deployment
+This will install all the requirements defined in the `package.json` file inside the watch-tower folder.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `yarn build` fails to minify
+### Development Contributing Guidelines
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- The branch naming, commit message and pull request conventions are documented [here](https://github.com/andela/engineering-playbook/tree/master/5.%20Developing/Conventions)
+- [Airbnb style guide for react](https://github.com/airbnb/javascript/tree/master/react)
+- [Airbnb style guide for ES6/ES7](https://github.com/airbnb/javascript)`
